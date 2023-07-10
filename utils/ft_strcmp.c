@@ -1,30 +1,28 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   parser.c                                           :+:      :+:    :+:   */
+/*   ft_strcmp.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: abouazi <abouazi@student.1337.ma>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2023/06/07 21:40:51 by abouazi           #+#    #+#             */
-/*   Updated: 2023/07/10 07:40:30 by abouazi          ###   ########.fr       */
+/*   Created: 2023/06/11 04:46:14 by abouazi           #+#    #+#             */
+/*   Updated: 2023/06/11 04:46:48 by abouazi          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "../cub3d.h"
+#include "../includes/cub3d.h"
 
-void parser(char **arg, t_map *map)
+int	ft_strcmp(char *s1, char *s2)
 {
-	if (extension(arg[1]))
-		ft_error("Check File Name !");
-	map->fd = open(arg[1], O_RDONLY);
-	if (map->fd == -1)
-	{
-		close(map->fd);
-		ft_error("Opening file error !");
-	}
-	map->map = read_map(arg);
-	elements(map->map);
-	textures(map);
-	colors(map);
-}
+	int	i;
 
+	i = 0;
+	while (s1[i] && s2[i])
+	{
+		if (s1[i] == s2[i])
+			i++;
+		else
+			break ;
+	}
+	return (s1[i] - s2[i]);
+}

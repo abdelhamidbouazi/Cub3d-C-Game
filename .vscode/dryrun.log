@@ -24,6 +24,27 @@ gcc -Wall -Wextra -Werror -c render/draw3d.c -o render/draw3d.o
 gcc -Wall -Wextra -Werror -c render/my_mlx.c -o render/my_mlx.o
 gcc -Wall -Wextra -Werror -c render/wall.c -o render/wall.o
 gcc -Wall -Wextra -Werror -c render/textures.c -o render/textures.o
-gcc -Wall -Wextra -Werror main.o move/left.o move/right.o move/forward.o move/back.o move/rotate_left.o move/rotate_right.o move/esc.o move/init_keys.o move/press.o move/release.o move/move.o cast/raycastingh.o cast/raycastingv.o cast/distance.o cast/is_wall.o cast/raycasting.o cast/create_img.o cast/normalizer.o render/draw3d.o render/my_mlx.o render/wall.o render/textures.o  -lmlx -framework OpenGL -framework AppKit  -o cub3D
+gcc -Wall -Wextra -Werror -c parser/parser.c -o parser/parser.o
+gcc -Wall -Wextra -Werror -c parser/Check/colors.c -o parser/Check/colors.o
+gcc -Wall -Wextra -Werror -c parser/Check/elements.c -o parser/Check/elements.o
+gcc -Wall -Wextra -Werror -c parser/Check/extension.c -o parser/Check/extension.o
+gcc -Wall -Wextra -Werror -c parser/Check/floor_ciel.c -o parser/Check/floor_ciel.o
+ 
+gcc -Wall -Wextra -Werror -c parser/Check/headers.c -o parser/Check/headers.o
+gcc -Wall -Wextra -Werror -c parser/Check/textures.c -o parser/Check/textures.o
+gcc -Wall -Wextra -Werror -c parser/Fill/colors.c -o parser/Fill/colors.o
+gcc -Wall -Wextra -Werror -c parser/Fill/textures.c -o parser/Fill/textures.o
+gcc -Wall -Wextra -Werror -c parser/Read/map.c -o parser/Read/map.o
+gcc -Wall -Wextra -Werror -c parser/utils/free_split.c -o parser/utils/free_split.o
+gcc -Wall -Wextra -Werror -c gnl/gnl.c -o gnl/gnl.o
+gcc -Wall -Wextra -Werror -c gnl/gnl_utils.c -o gnl/gnl_utils.o
 make: Leaving directory `/Users/abouazi/Desktop/Cub3D_2'
  
+make: *** No rule to make target `utils/ft_atoi.o', needed by `cub3D'.
+make: *** No rule to make target `utils/ft_error.o', needed by `cub3D'.
+make: *** No rule to make target `utils/ft_split.o', needed by `cub3D'.
+make: *** No rule to make target `utils/ft_strcmp.o', needed by `cub3D'.
+make: *** No rule to make target `utils/ft_strncmp.o', needed by `cub3D'.
+make: *** No rule to make target `utils/ft_substr.o', needed by `cub3D'.
+make: *** No rule to make target `utils/ft_strndup.o', needed by `cub3D'.
+

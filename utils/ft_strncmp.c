@@ -1,30 +1,27 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   parser.c                                           :+:      :+:    :+:   */
+/*   ft_strncmp.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: abouazi <abouazi@student.1337.ma>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2023/06/07 21:40:51 by abouazi           #+#    #+#             */
-/*   Updated: 2023/07/10 07:40:30 by abouazi          ###   ########.fr       */
+/*   Created: 2023/06/11 04:49:03 by abouazi           #+#    #+#             */
+/*   Updated: 2023/06/11 04:49:13 by abouazi          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "../cub3d.h"
+#include "../includes/cub3d.h"
 
-void parser(char **arg, t_map *map)
+int	ft_strncmp(char *s1, char *s2, int n)
 {
-	if (extension(arg[1]))
-		ft_error("Check File Name !");
-	map->fd = open(arg[1], O_RDONLY);
-	if (map->fd == -1)
-	{
-		close(map->fd);
-		ft_error("Opening file error !");
-	}
-	map->map = read_map(arg);
-	elements(map->map);
-	textures(map);
-	colors(map);
-}
+	int	i;
 
+	i = 0;
+	if (!n)
+		return (0);
+	while (s1[i] == s2[i] && s1[i] && s2[i] && i < n)
+		i++;
+	if (i == n)
+		return (0);
+	return ((unsigned char) s1[i] - (unsigned char) s2[i]);
+}

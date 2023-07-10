@@ -6,11 +6,17 @@
 /*   By: abouazi <abouazi@student.1337.ma>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/07/10 06:54:08 by abouazi           #+#    #+#             */
-/*   Updated: 2023/07/10 06:54:17 by abouazi          ###   ########.fr       */
+/*   Updated: 2023/07/10 23:06:58 by abouazi          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../cub3d.h"
+
+int	color(int r, int g, int b)
+{
+	return (0 << 24 | r << 16 | g
+		<< 8 | b);
+}
 
 void draw3D(t_data *data,double ray_distance,double ray_angle ,int ray)
 {
@@ -21,15 +27,14 @@ void draw3D(t_data *data,double ray_distance,double ray_angle ,int ray)
 	double floor_height = (SCREEN_HEIGHT / 2) + (stripe_height / 2);
 
 	int i = 0;
-	while(i < ciel_height)
+	while(i++ < ciel_height)
 	{
-		my_mlx_pixel_put(data, ray, i, 0x045B5B);
-		i++;
+		my_mlx_pixel_put(data, ray, i, color(data->map->ciel.r, data->map->ciel.g, data->map->ciel.b));
 	}
 	wall(data,ray,ciel_height,floor_height,ray_angle);
 	while(floor_height < SCREEN_HEIGHT)
 	{
-		my_mlx_pixel_put(data, ray, floor_height , 0x484848);
+		my_mlx_pixel_put(data, ray, floor_height , color(data->map->floor.r, data->map->floor.g, data->map->floor.b));
 		floor_height++;
 	}
 }

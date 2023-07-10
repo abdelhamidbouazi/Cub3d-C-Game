@@ -1,30 +1,39 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   parser.c                                           :+:      :+:    :+:   */
+/*   ft_atoi.c                                          :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: abouazi <abouazi@student.1337.ma>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2023/06/07 21:40:51 by abouazi           #+#    #+#             */
-/*   Updated: 2023/07/10 07:40:30 by abouazi          ###   ########.fr       */
+/*   Created: 2021/11/05 18:00:17 by abouazi           #+#    #+#             */
+/*   Updated: 2023/06/11 06:14:44 by abouazi          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "../cub3d.h"
+#include "../includes/cub3d.h"
 
-void parser(char **arg, t_map *map)
+int	ft_atoi(const char *str)
 {
-	if (extension(arg[1]))
-		ft_error("Check File Name !");
-	map->fd = open(arg[1], O_RDONLY);
-	if (map->fd == -1)
-	{
-		close(map->fd);
-		ft_error("Opening file error !");
-	}
-	map->map = read_map(arg);
-	elements(map->map);
-	textures(map);
-	colors(map);
-}
+	int	i;
+	int	neg;
+	int	res;
 
+	neg = 1;
+	i = 0;
+	res = 0;
+	while (((str[i] >= '\t' && str[i] <= '\r') || str[i] == ' ') && str[i])
+		i++;
+	if (str[i] == '-')
+	{
+		neg *= -1;
+		i++;
+	}
+	else if (str[i] == '+')
+		i++;
+	while (str[i] >= '0' && str[i] <= '9' && str[i])
+	{
+		res = res * 10 + (str[i] - '0');
+		i++;
+	}
+	return (res * neg);
+}

@@ -8,22 +8,24 @@ make all --print-data-base --no-builtin-variables --no-builtin-rules --question
 # This program built for i386-apple-darwin11.3.0
  
 
-# Make data base, printed on Mon Jul 10 07:02:13 2023
+# Make data base, printed on Mon Jul 10 07:34:32 2023
 
 # Variables
 
+# makefile (from `Makefile', line 20)
+UTILS = utils/ft_atoi.c utils/ft_error.c utils/ft_split.c utils/ft_strcmp.c utils/ft_strncmp.c utils/ft_substr.c utils/ft_strndup.c parser/utils/free_split.c
 # automatic
 <D = $(patsubst %/,%,$(dir $<))
 # automatic
 ?F = $(notdir $?)
-# makefile (from `Makefile', line 18)
+# makefile (from `Makefile', line 28)
 CAST = cast/raycastingh.c cast/raycastingv.c cast/distance.c cast/is_wall.c cast/raycasting.c cast/create_img.c cast/normalizer.c
-# makefile (from `Makefile', line 29)
+# makefile (from `Makefile', line 40)
 OBJ = $(SRC:.c=.o)
 # environment
 VSCODE_CRASH_REPORTER_PROCESS_TYPE = extensionHost
-# makefile (from `Makefile', line 21)
-SRC = main.c $(MOVE) $(CAST) $(RENDER)
+# makefile (from `Makefile', line 32)
+SRC = main.c $(MOVE) $(CAST) $(RENDER) $(PARSING)
 # automatic
 ?D = $(patsubst %/,%,$(dir $?))
 # automatic
@@ -34,7 +36,7 @@ SRC = main.c $(MOVE) $(CAST) $(RENDER)
 CURDIR := /Users/abouazi/Desktop/Cub3D_2
 # makefile
 SHELL = /bin/sh
-# makefile (from `Makefile', line 27)
+# makefile (from `Makefile', line 38)
 RM = rm -f
 # environment
 VSCODE_NLS_CONFIG = {"locale":"en-us","osLocale":"en","availableLanguages":{},"_languagePackSupport":true}
@@ -46,7 +48,7 @@ MAKEFILE_LIST :=  Makefile
 VSCODE_CWD = /
 # environment
 PATH = /usr/local/bin:/usr/bin:/bin:/usr/sbin:/sbin:/usr/local/munki:/Library/Apple/usr/bin
-# makefile (from `Makefile', line 20)
+# makefile (from `Makefile', line 30)
 RENDER = render/draw3d.c render/my_mlx.c render/wall.c render/textures.c
 # environment
 LSCOLORS = Gxfxcxdxbxegedabagacad
@@ -56,6 +58,8 @@ ELECTRON_RUN_AS_NODE = 1
 .FEATURES := target-specific order-only second-expansion else-if archives jobserver check-symlink
 # environment
 LS_COLORS = di=1;36:ln=35:so=32:pi=33:ex=31:bd=34;46:cd=34;43:su=30;41:sg=30;46:tw=30;42:ow=30;43
+# makefile (from `Makefile', line 24)
+PARSING = parser/parser.c ${CHECK} ${FILL} ${READ} ${UTILS} ${GNL}
 # environment
 SSH_AUTH_SOCK = /private/tmp/com.apple.launchd.TaZtKqL3xi/Listeners
 # automatic
@@ -90,12 +94,16 @@ MAKE = $(MAKE_COMMAND)
 MAKECMDGOALS := all
 # environment
 SHLVL = 1
-# makefile (from `Makefile', line 24)
+# makefile (from `Makefile', line 35)
 CC = gcc
 # default
 MAKE_VERSION := 3.81
 # environment
 USER = abouazi
+# makefile (from `Makefile', line 16)
+CHECK = parser/Check/colors.c parser/Check/elements.c parser/Check/extension.c parser/Check/floor_ciel.c parser/Check/headers.c parser/Check/textures.c
+# makefile (from `Makefile', line 18)
+FILL = parser/Fill/colors.c parser/Fill/textures.c
 # makefile
 .DEFAULT_GOAL := all
 # makefile (from `Makefile', line 13)
@@ -106,13 +114,13 @@ LESS = -R
 %D = $(patsubst %/,%,$(dir $%))
 # default
 MAKE_COMMAND := /Applications/Xcode.app/Contents/Developer/usr/bin/make
-# makefile (from `Makefile', line 22)
+# makefile (from `Makefile', line 33)
 INCL = cub3d.h
 # default
 .VARIABLES := 
 # environment
 TMPDIR = /var/folders/zz/zyxvpxvq6csfxvn_n000cdph0033dm/T/
-# makefile (from `Makefile', line 16)
+# makefile (from `Makefile', line 26)
 MOVE = move/left.c  move/right.c move/forward.c move/back.c move/rotate_left.c move/rotate_right.c move/esc.c move/init_keys.c move/press.c move/release.c move/move.c
 # automatic
 *F = $(notdir $*)
@@ -134,10 +142,14 @@ XPC_SERVICE_NAME = com.microsoft.VSCode.2160
 VSCODE_L10N_BUNDLE_LOCATION = 
 # automatic
 +F = $(notdir $+)
+# makefile (from `Makefile', line 19)
+READ = parser/Read/map.c
 # environment
 __CF_USER_TEXT_ENCODING = 0x18DB4:0x0:0x0
 # default
 MAKEFILES := 
+# makefile (from `Makefile', line 23)
+GNL = gnl/gnl.c gnl/gnl_utils.c
 # automatic
 <F = $(notdir $<)
 # environment
@@ -148,11 +160,12 @@ LC_ALL = C
 ^F = $(notdir $^)
 # default
 SUFFIXES := 
-# makefile (from `Makefile', line 25)
+# makefile (from `Makefile', line 36)
 FLAGS = -Wall -Wextra -Werror
-# makefile (from `Makefile', line 26)
+# makefile (from `Makefile', line 37)
 FLAGS_MLX = -lmlx -framework OpenGL -framework AppKit
 # default
+ 
 .INCLUDE_DIRS = /usr/local/include
 # environment
 MAKELEVEL := 0
@@ -161,7 +174,7 @@ LANG = C
 # environment
 VSCODE_PID = 56727
 # variable set hash-table stats:
-# Load=74/1024=7%, Rehash=0, Collisions=3/110=3%
+# Load=80/1024=8%, Rehash=0, Collisions=7/122=6%
 
 # Pattern-specific Variable Values
 
@@ -169,14 +182,14 @@ VSCODE_PID = 56727
 
 # Directories
 
-# . (device 16777225, inode 146000): 13 files, no impossibilities.
+# . (device 16777225, inode 146000): 17 files, no impossibilities.
 
-# 13 files, no impossibilities in 1 directories.
+# 17 files, no impossibilities in 1 directories.
 
 # Implicit Rules
 
 %.o: %.c cub3d.h
-#  commands to execute (from `Makefile', line 36):
+#  commands to execute (from `Makefile', line 47):
 	$(CC) $(FLAGS) -c $< -o $@
 	
 
@@ -206,7 +219,19 @@ all: cub3D
 # Load=0/32=0%, Rehash=0, Collisions=0/4=0%
 
 # Not a target:
+parser/parser.o:
+#  Implicit rule search has not been done.
+#  Modification time never checked.
+#  File has not been updated.
+
+# Not a target:
 render/draw3d.o:
+#  Implicit rule search has not been done.
+#  Modification time never checked.
+#  File has not been updated.
+
+# Not a target:
+utils/ft_substr.o:
 #  Implicit rule search has not been done.
 #  Modification time never checked.
 #  File has not been updated.
@@ -214,25 +239,31 @@ render/draw3d.o:
 # Not a target:
 main.c:
 #  Implicit rule search has been done.
-#  Last modified 2023-07-10 07:01:59
+#  Last modified 2023-07-10 07:29:22
 #  File has been updated.
 #  Successfully updated.
 # variable set hash-table stats:
 # Load=0/32=0%, Rehash=0, Collisions=0/0=0%
 
-cub3D: main.o move/left.o move/right.o move/forward.o move/back.o move/rotate_left.o move/rotate_right.o move/esc.o move/init_keys.o move/press.o move/release.o move/move.o cast/raycastingh.o cast/raycastingv.o cast/distance.o cast/is_wall.o cast/raycasting.o cast/create_img.o cast/normalizer.o render/draw3d.o render/my_mlx.o render/wall.o render/textures.o
+cub3D: main.o move/left.o move/right.o move/forward.o move/back.o move/rotate_left.o move/rotate_right.o move/esc.o move/init_keys.o move/press.o move/release.o move/move.o cast/raycastingh.o cast/raycastingv.o cast/distance.o cast/is_wall.o cast/raycasting.o cast/create_img.o cast/normalizer.o render/draw3d.o render/my_mlx.o render/wall.o render/textures.o parser/parser.o parser/Check/colors.o parser/Check/elements.o parser/Check/extension.o parser/Check/floor_ciel.o parser/Check/headers.o parser/Check/textures.o parser/Fill/colors.o parser/Fill/textures.o parser/Read/map.o utils/ft_atoi.o utils/ft_error.o utils/ft_split.o utils/ft_strcmp.o utils/ft_strncmp.o utils/ft_substr.o utils/ft_strndup.o parser/utils/free_split.o gnl/gnl.o gnl/gnl_utils.o
 #  Implicit rule search has not been done.
 #  File does not exist.
 #  File has been updated.
 #  Needs to be updated (-q is set).
 # variable set hash-table stats:
 # Load=0/32=0%, Rehash=0, Collisions=0/4=0%
-#  commands to execute (from `Makefile', line 33):
+#  commands to execute (from `Makefile', line 44):
 	$(CC) $(FLAGS) $(OBJ)  $(FLAGS_MLX)  -o $(NAME)
 	
 
 # Not a target:
 cast/raycasting.o:
+#  Implicit rule search has not been done.
+#  Modification time never checked.
+#  File has not been updated.
+
+# Not a target:
+parser/Fill/colors.o:
 #  Implicit rule search has not been done.
 #  Modification time never checked.
 #  File has not been updated.
@@ -244,9 +275,27 @@ cast/raycasting.o:
 #  File has not been updated.
 
 # Not a target:
+utils/ft_strndup.o:
+#  Implicit rule search has not been done.
+#  Modification time never checked.
+#  File has not been updated.
+
+# Not a target:
+utils/ft_strncmp.o:
+#  Implicit rule search has not been done.
+#  Modification time never checked.
+#  File has not been updated.
+
+# Not a target:
+parser/utils/free_split.o:
+#  Implicit rule search has not been done.
+#  Modification time never checked.
+#  File has not been updated.
+
+# Not a target:
 Makefile:
 #  Implicit rule search has been done.
-#  Last modified 2023-07-10 07:02:11
+#  Last modified 2023-07-10 07:34:26
 #  File has been updated.
 #  Successfully updated.
 # variable set hash-table stats:
@@ -260,6 +309,24 @@ cast/is_wall.o:
 
 # Not a target:
 move/rotate_left.o:
+#  Implicit rule search has not been done.
+#  Modification time never checked.
+#  File has not been updated.
+
+# Not a target:
+utils/ft_strcmp.o:
+#  Implicit rule search has not been done.
+#  Modification time never checked.
+#  File has not been updated.
+
+# Not a target:
+parser/Check/extension.o:
+#  Implicit rule search has not been done.
+#  Modification time never checked.
+#  File has not been updated.
+
+# Not a target:
+parser/Read/map.o:
 #  Implicit rule search has not been done.
 #  Modification time never checked.
 #  File has not been updated.
@@ -295,6 +362,18 @@ move/right.o:
 #  File has not been updated.
 
 # Not a target:
+parser/Check/colors.o:
+#  Implicit rule search has not been done.
+#  Modification time never checked.
+#  File has not been updated.
+
+# Not a target:
+parser/Fill/textures.o:
+#  Implicit rule search has not been done.
+#  Modification time never checked.
+#  File has not been updated.
+
+# Not a target:
 move/press.o:
 #  Implicit rule search has not been done.
 #  Modification time never checked.
@@ -304,9 +383,21 @@ fclean: clean
 #  Implicit rule search has not been done.
 #  Modification time never checked.
 #  File has not been updated.
-#  commands to execute (from `Makefile', line 39):
+#  commands to execute (from `Makefile', line 50):
 	$(RM) $(NAME)
 	
+
+# Not a target:
+utils/ft_atoi.o:
+#  Implicit rule search has not been done.
+#  Modification time never checked.
+#  File has not been updated.
+
+# Not a target:
+utils/ft_error.o:
+#  Implicit rule search has not been done.
+#  Modification time never checked.
+#  File has not been updated.
 
 # Not a target:
 .DEFAULT:
@@ -315,14 +406,31 @@ fclean: clean
 #  File has not been updated.
 
 # Not a target:
+parser/Check/elements.o:
+#  Implicit rule search has not been done.
+#  Modification time never checked.
+#  File has not been updated.
+
+# Not a target:
+gnl/gnl_utils.o:
+#  Implicit rule search has not been done.
+#  Modification time never checked.
+#  File has not been updated.
+
+# Not a target:
 cast/create_img.o:
 #  Implicit rule search has not been done.
 #  Modification time never checked.
- 
 #  File has not been updated.
 
 # Not a target:
 cast/raycastingv.o:
+#  Implicit rule search has not been done.
+#  Modification time never checked.
+#  File has not been updated.
+
+# Not a target:
+parser/Check/textures.o:
 #  Implicit rule search has not been done.
 #  Modification time never checked.
 #  File has not been updated.
@@ -342,7 +450,7 @@ run: fclean all
 #  Implicit rule search has not been done.
 #  Modification time never checked.
 #  File has not been updated.
-#  commands to execute (from `Makefile', line 48):
+#  commands to execute (from `Makefile', line 59):
 	./cub3D
 	
 
@@ -350,7 +458,7 @@ clean:
 #  Implicit rule search has not been done.
 #  Modification time never checked.
 #  File has not been updated.
-#  commands to execute (from `Makefile', line 42):
+#  commands to execute (from `Makefile', line 53):
 	$(RM) $(OBJ)
 	
 
@@ -363,14 +471,21 @@ cast/normalizer.o:
 # Not a target:
 cub3d.h:
 #  Implicit rule search has been done.
-#  Last modified 2023-07-10 06:57:39
+#  Last modified 2023-07-10 07:33:09
 #  File has been updated.
 #  Successfully updated.
 # variable set hash-table stats:
 # Load=0/32=0%, Rehash=0, Collisions=0/0=0%
 
 # Not a target:
+ 
 move/forward.o:
+#  Implicit rule search has not been done.
+#  Modification time never checked.
+#  File has not been updated.
+
+# Not a target:
+utils/ft_split.o:
 #  Implicit rule search has not been done.
 #  Modification time never checked.
 #  File has not been updated.
@@ -399,12 +514,18 @@ main.o: main.c cub3d.h
 # ? := main.c cub3d.h
 # variable set hash-table stats:
 # Load=8/32=25%, Rehash=0, Collisions=1/14=7%
-#  commands to execute (from `Makefile', line 36):
+#  commands to execute (from `Makefile', line 47):
 	$(CC) $(FLAGS) -c $< -o $@
 	
 
 # Not a target:
 render/textures.o:
+#  Implicit rule search has not been done.
+#  Modification time never checked.
+#  File has not been updated.
+
+# Not a target:
+parser/Check/headers.o:
 #  Implicit rule search has not been done.
 #  Modification time never checked.
 #  File has not been updated.
@@ -433,8 +554,20 @@ move/esc.o:
 #  Modification time never checked.
 #  File has not been updated.
 
+# Not a target:
+parser/Check/floor_ciel.o:
+#  Implicit rule search has not been done.
+#  Modification time never checked.
+#  File has not been updated.
+
+# Not a target:
+gnl/gnl.o:
+#  Implicit rule search has not been done.
+#  Modification time never checked.
+#  File has not been updated.
+
 # files hash-table stats:
-# Load=34/1024=3%, Rehash=0, Collisions=4/81=5%
+# Load=54/1024=5%, Rehash=0, Collisions=6/121=5%
 # VPATH Search Paths
 
 # No `vpath' search paths.
@@ -446,6 +579,6 @@ move/esc.o:
 # strcache size: total = 4096 / max = 4096 / min = 4096 / avg = 4096
 # strcache free: total = 4087 / max = 4087 / min = 4087 / avg = 4087
 
-# Finished Make data base on Mon Jul 10 07:02:13 2023
+# Finished Make data base on Mon Jul 10 07:34:32 2023
 
  

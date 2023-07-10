@@ -6,22 +6,26 @@
 /*   By: abouazi <abouazi@student.1337.ma>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/07/08 00:34:29 by abouazi           #+#    #+#             */
-/*   Updated: 2023/07/10 07:02:18 by abouazi          ###   ########.fr       */
+/*   Updated: 2023/07/10 09:14:47 by abouazi          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #ifndef CUB3D_H
 #define CUB3D_H
 
-#define SCREEN_WIDTH 960
-#define SCREEN_HEIGHT 960
+
 #include <mlx.h>
 #include <stdlib.h>
 #include <stdbool.h>
 # include <math.h>
-#include "stdio.h"
+#include <stdio.h>
 #include <unistd.h>
+# include <fcntl.h>
 
+# define WALL_WIDTH 40
+# define WALL_HEIGHT 40
+# define SCREEN_WIDTH 960
+# define SCREEN_HEIGHT 960
 
 # define FORWARD 13
 # define BACK 1
@@ -34,13 +38,45 @@
 # define ESC 53
 # define WALL 40
 
-# define M_SPEED 14
-# define M_ROTATE 5
+# define M_SPEED 8
+# define M_ROTATE 3
 
 
 
 
 int	map[24][24];
+
+typedef struct s_key
+{
+	int		w;
+	int		a;
+	int		s;
+	int		d;
+}				t_key;
+
+typedef struct s_color
+{
+	int r;
+	int g;
+	int b;
+} t_color;
+
+typedef struct s_map {
+	int		fd;
+	char	**map;
+	int		i;
+	char	*tmp;
+	int		line;
+	char	*tmp2;
+	char	*no;
+	char	*so;
+	char	*we;
+	char	*ea;
+	int		col;
+	int		row;
+	t_color	floor;
+	t_color	ciel;
+} t_map;
 
 typedef struct s_player
 {
@@ -85,7 +121,7 @@ typedef struct s_image
 	int					line_len;
 	int					endian;
 
-}						t_image;
+} t_image;
 
 
 typedef struct s_data{
@@ -103,14 +139,59 @@ typedef struct s_data{
 	int	bit_pixel;
 	int	line_len;
 	int	endian;
+	int check;
+	bool check_texture;
 	t_player *player;
 	t_keys *keys;
 	t_ray *ray;
 	t_image image;
-	int check;
-	bool check_texture;
-
+	t_map	*map;
 }t_data;
+
+// Parsing
+void parser(char **arg, t_map *map);
+// Check
+void	colors(t_map *game);
+int 	is_valid_color(t_color color);
+void	elements(char **map);
+int		extension(char *arg);
+void	floor_ciel(char **map, int *index);
+void	headers(char **map, int *index);
+int		is_texture_missing(const char *texture_path);
+// Fill
+void	rgb(t_color *color, char **str);
+void	textures(t_map *game);
+// Read
+char	**read_map(char	**av);
+int		num_of_lines(char **av);
+char	**read_map(char	**av);
+// Utils
+void free_splt(char **tab);
+
+
+
+
+// utils
+void ft_error(char *err);
+int	ft_strcmp(char *s1, char *s2);
+int	ft_strncmp(char *s1, char *s2, int n);
+char	*ft_strdup2(char *str, int *i, char *s);
+char	*ft_strndup(char *s1, int n);
+int	ft_atoi(const char *str);
+char	**ft_split(char *str, char *s);
+char	*ft_strndup(char *s1, int n);
+char	*ft_substr(char const *s, unsigned int start, size_t len);
+
+// Get Next Line
+char	*ft_read(char *leftxt, int fd);
+char	*ft_get_line(char	*leftxt);
+char	*ft_stock(char *leftxt);
+char	*get_next_line(int fd);
+size_t	ft_strlen(const char *s);
+char	*ft_strchr(const char *s, int c);
+char	*ft_strdup(const char *s1);
+char	*ft_strjoin(char *s1, char *s2);
+
 
 // events
 int move(t_data *data);

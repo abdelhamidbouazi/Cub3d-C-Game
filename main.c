@@ -6,7 +6,7 @@
 /*   By: abouazi <abouazi@student.1337.ma>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/07/08 00:32:48 by abouazi           #+#    #+#             */
-/*   Updated: 2023/07/10 07:01:59 by abouazi          ###   ########.fr       */
+/*   Updated: 2023/07/10 09:11:42 by abouazi          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -100,20 +100,30 @@ void init_player(t_player *player)
 	player->fov = M_PI / 3;
 }
 
-
-
-
-
-int main()
+int main(int ac, char **av)
 {
 	t_data data;
+
+	data.map = (t_map *)malloc(sizeof(t_map));
+	if (!data.map)
+		return 0;
+	if(ac != 2)
+		ft_error("Arguments Number Error!");
+	parser(av, data.map);
+
 	data.player = (t_player *)malloc(sizeof(t_player));
+	if (!data.player)
+		return 0;
 	data.ray = (t_ray *)malloc(sizeof(t_ray));
+	if (!data.ray)
+		return 0;
 	init_player(data.player);
 	data.keys = (t_keys *)malloc(sizeof(t_keys));
+	if (!data.keys)
+		return 0;
 	init_keys(data.keys);
-	data.wall_width = 40;
-	data.wall_height = 40;
+	data.wall_width = WALL_WIDTH;
+	data.wall_height = WALL_HEIGHT;
 
 	data.mlx = mlx_init();
 	data.win = mlx_new_window(data.mlx, SCREEN_WIDTH, SCREEN_HEIGHT, "Cub3D");

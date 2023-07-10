@@ -1,30 +1,19 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   parser.c                                           :+:      :+:    :+:   */
+/*   ft_error.c                                         :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: abouazi <abouazi@student.1337.ma>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2023/06/07 21:40:51 by abouazi           #+#    #+#             */
-/*   Updated: 2023/07/10 07:40:30 by abouazi          ###   ########.fr       */
+/*   Created: 2023/06/11 04:34:37 by abouazi           #+#    #+#             */
+/*   Updated: 2023/06/11 04:43:35 by abouazi          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "../cub3d.h"
+#include "../includes/cub3d.h"
 
-void parser(char **arg, t_map *map)
+void ft_error(char *err)
 {
-	if (extension(arg[1]))
-		ft_error("Check File Name !");
-	map->fd = open(arg[1], O_RDONLY);
-	if (map->fd == -1)
-	{
-		close(map->fd);
-		ft_error("Opening file error !");
-	}
-	map->map = read_map(arg);
-	elements(map->map);
-	textures(map);
-	colors(map);
+	printf("Error : %s\n", err);
+	exit(1);
 }
-
