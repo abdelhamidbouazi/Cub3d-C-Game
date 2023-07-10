@@ -6,7 +6,7 @@
 /*   By: abouazi <abouazi@student.1337.ma>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/07/08 00:32:48 by abouazi           #+#    #+#             */
-/*   Updated: 2023/07/10 23:51:45 by abouazi          ###   ########.fr       */
+/*   Updated: 2023/07/11 00:00:18 by abouazi          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -38,6 +38,15 @@ int map[24][24] = {
   {1,1,1,1,1,1,1,1,1,0,0,0,0,0,0,0,0,0,0,0,0,0,0,1},
   {1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1}
 };
+
+void ft_free(t_data *data)
+{
+	free(data->map);
+	free(data->player);
+	free(data->ray);
+	free(data->keys);
+}
+
 
 
 void draw_square(t_data *data, int x_start, int y_start,int color)
@@ -92,14 +101,14 @@ int main(int ac, char **av)
 	parser(av, data.map);
 
 	data.player = (t_player *)malloc(sizeof(t_player));
-	if (!data.player)
+	if (data.player == NULL)
 		return 0;
 	data.ray = (t_ray *)malloc(sizeof(t_ray));
-	if (!data.ray)
+	if (data.ray == NULL)
 		return 0;
 	init_player(data.player);
 	data.keys = (t_keys *)malloc(sizeof(t_keys));
-	if (!data.keys)
+	if (data.keys == NULL)
 		return 0;
 	init_keys(data.keys);
 	data.wall_width = WALL_WIDTH;
@@ -116,5 +125,6 @@ int main(int ac, char **av)
 	draw_map(&data);
 	draw_player(&data);
 	mlx_loop(data.mlx);
+	ft_free(&data);
 }
 
