@@ -1,5 +1,5 @@
-make --dry-run --always-make --keep-going --print-directory
-make: Entering directory `/Users/abouazi/Desktop/new'
+make --dry-run --keep-going --print-directory
+make: Entering directory `/Users/abouazi/Desktop/Cub3D_2'
 gcc -Wall -Wextra -Werror -c main.c -o main.o
  
 gcc -Wall -Wextra -Werror -c move/left.c -o move/left.o
@@ -8,10 +8,22 @@ gcc -Wall -Wextra -Werror -c move/forward.c -o move/forward.o
 gcc -Wall -Wextra -Werror -c move/back.c -o move/back.o
 gcc -Wall -Wextra -Werror -c move/rotate_left.c -o move/rotate_left.o
 gcc -Wall -Wextra -Werror -c move/rotate_right.c -o move/rotate_right.o
- 
 gcc -Wall -Wextra -Werror -c move/esc.c -o move/esc.o
+gcc -Wall -Wextra -Werror -c move/init_keys.c -o move/init_keys.o
+gcc -Wall -Wextra -Werror -c move/press.c -o move/press.o
+gcc -Wall -Wextra -Werror -c move/release.c -o move/release.o
+gcc -Wall -Wextra -Werror -c move/move.c -o move/move.o
 gcc -Wall -Wextra -Werror -c cast/raycastingh.c -o cast/raycastingh.o
 gcc -Wall -Wextra -Werror -c cast/raycastingv.c -o cast/raycastingv.o
-gcc -Wall -Wextra -Werror main.o move/left.o move/right.o move/forward.o move/back.o move/rotate_left.o move/rotate_right.o move/esc.o cast/raycastingh.o cast/raycastingv.o  -lmlx -framework OpenGL -framework AppKit  -o cub3D
-make: Leaving directory `/Users/abouazi/Desktop/new'
+gcc -Wall -Wextra -Werror -c cast/distance.c -o cast/distance.o
+gcc -Wall -Wextra -Werror -c cast/is_wall.c -o cast/is_wall.o
+gcc -Wall -Wextra -Werror -c cast/raycasting.c -o cast/raycasting.o
+gcc -Wall -Wextra -Werror -c cast/create_img.c -o cast/create_img.o
+gcc -Wall -Wextra -Werror -c cast/normalizer.c -o cast/normalizer.o
+gcc -Wall -Wextra -Werror -c render/draw3d.c -o render/draw3d.o
+gcc -Wall -Wextra -Werror -c render/my_mlx.c -o render/my_mlx.o
+gcc -Wall -Wextra -Werror -c render/wall.c -o render/wall.o
+gcc -Wall -Wextra -Werror -c render/textures.c -o render/textures.o
+gcc -Wall -Wextra -Werror main.o move/left.o move/right.o move/forward.o move/back.o move/rotate_left.o move/rotate_right.o move/esc.o move/init_keys.o move/press.o move/release.o move/move.o cast/raycastingh.o cast/raycastingv.o cast/distance.o cast/is_wall.o cast/raycasting.o cast/create_img.o cast/normalizer.o render/draw3d.o render/my_mlx.o render/wall.o render/textures.o  -lmlx -framework OpenGL -framework AppKit  -o cub3D
+make: Leaving directory `/Users/abouazi/Desktop/Cub3D_2'
  

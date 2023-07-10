@@ -6,7 +6,7 @@
 /*   By: abouazi <abouazi@student.1337.ma>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/07/08 00:34:29 by abouazi           #+#    #+#             */
-/*   Updated: 2023/07/10 01:28:29 by abouazi          ###   ########.fr       */
+/*   Updated: 2023/07/10 07:02:18 by abouazi          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -112,6 +112,11 @@ typedef struct s_data{
 
 }t_data;
 
+// events
+int move(t_data *data);
+void init_keys(t_keys *keys);
+int press(int key, t_data *data);
+int release(int key, t_data *data);
 void forward(t_data *data);
 void back(t_data *data);
 void left(t_data *data);
@@ -120,13 +125,20 @@ void rotate_left(t_data *data);
 void rotate_right(t_data *data);
 int esc();
 
-
-// double raycasting_horizontal(t_data *data,double ray_angle);
-// double raycasting_vertical(t_data *data, double ray_angle);
-
+// cast
+void raycasting(t_data *data);
 double	raycastingh(t_data *data, double ray_angle);
 double	raycastingv(t_data *data, double ray_angle);
 int	is_wall(t_data *data, double v_x, double v_y, int face);
 double	distance(double xplayer, double xray, double yplayer, double yray);
+void	create_img(t_data *data);
+double	normalize_angle(double angle);
+
+// render
+void draw3D(t_data *data,double ray_distance,double ray_angle ,int ray);
+void	my_mlx_pixel_put(t_data *data, int x, int y, int color);
+void	wall(t_data *data, int ray,double ciel_height, double floor_height,double ray_angle);
+void texture(t_data *data);
+
 
 #endif

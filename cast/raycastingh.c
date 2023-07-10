@@ -6,23 +6,11 @@
 /*   By: abouazi <abouazi@student.1337.ma>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/07/08 05:15:05 by abouazi           #+#    #+#             */
-/*   Updated: 2023/07/10 02:48:43 by abouazi          ###   ########.fr       */
+/*   Updated: 2023/07/10 06:59:02 by abouazi          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../cub3d.h"
-
-double	distance(double xplayer, double xray, double yplayer, double yray)
-{
-	double	result;
-	double sum1;
-	double sum2;
-
-	sum1 = pow(xray - xplayer, 2);
-	sum2 = pow(yray - yplayer, 2);
-	result = sqrt(sum1 + sum2);
-	return (result);
-}
 
 void init_steps_horizental(t_data *data,double ray_angle, double *stepx, double *stepy)
 {
