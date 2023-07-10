@@ -6,7 +6,7 @@
 /*   By: abouazi <abouazi@student.1337.ma>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/07/10 06:54:08 by abouazi           #+#    #+#             */
-/*   Updated: 2023/07/10 23:06:58 by abouazi          ###   ########.fr       */
+/*   Updated: 2023/07/10 23:48:16 by abouazi          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -37,4 +37,5 @@ void draw3D(t_data *data,double ray_distance,double ray_angle ,int ray)
 		my_mlx_pixel_put(data, ray, floor_height , color(data->map->floor.r, data->map->floor.g, data->map->floor.b));
 		floor_height++;
 	}
+
 }

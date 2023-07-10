@@ -6,7 +6,7 @@
 /*   By: abouazi <abouazi@student.1337.ma>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/07/10 06:46:53 by abouazi           #+#    #+#             */
-/*   Updated: 2023/07/10 23:24:36 by abouazi          ###   ########.fr       */
+/*   Updated: 2023/07/10 23:54:19 by abouazi          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -52,9 +52,5 @@ int move(t_data *data)
 	}
 	if (data->keys->esc == true)
 		esc();
-	// mlx_clear_window(data->mlx,data->win);
-	// draw_map(data);
-	// draw_player(data);
-	// drawRay(data,data->player->x,data->player->y,data->player->x,data->player->y,data->player->angle,M_SPEED * 50,0xff0000);
 	return 0;
 }
