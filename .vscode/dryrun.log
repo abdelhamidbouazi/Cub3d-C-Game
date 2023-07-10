@@ -1,0 +1,17 @@
+make --dry-run --always-make --keep-going --print-directory
+make: Entering directory `/Users/abouazi/Desktop/new'
+gcc -Wall -Wextra -Werror -c main.c -o main.o
+ 
+gcc -Wall -Wextra -Werror -c move/left.c -o move/left.o
+gcc -Wall -Wextra -Werror -c move/right.c -o move/right.o
+gcc -Wall -Wextra -Werror -c move/forward.c -o move/forward.o
+gcc -Wall -Wextra -Werror -c move/back.c -o move/back.o
+gcc -Wall -Wextra -Werror -c move/rotate_left.c -o move/rotate_left.o
+gcc -Wall -Wextra -Werror -c move/rotate_right.c -o move/rotate_right.o
+ 
+gcc -Wall -Wextra -Werror -c move/esc.c -o move/esc.o
+gcc -Wall -Wextra -Werror -c cast/raycastingh.c -o cast/raycastingh.o
+gcc -Wall -Wextra -Werror -c cast/raycastingv.c -o cast/raycastingv.o
+gcc -Wall -Wextra -Werror main.o move/left.o move/right.o move/forward.o move/back.o move/rotate_left.o move/rotate_right.o move/esc.o cast/raycastingh.o cast/raycastingv.o  -lmlx -framework OpenGL -framework AppKit  -o cub3D
+make: Leaving directory `/Users/abouazi/Desktop/new'
+ 
