@@ -1,26 +1,19 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   init_keys.c                                        :+:      :+:    :+:   */
+/*   map.c                                              :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: abouazi <abouazi@student.1337.ma>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2023/07/10 06:42:04 by abouazi           #+#    #+#             */
-/*   Updated: 2023/07/11 08:21:19 by abouazi          ###   ########.fr       */
+/*   Created: 2023/07/12 02:58:16 by abouazi           #+#    #+#             */
+/*   Updated: 2023/07/12 03:06:01 by abouazi          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "../cub3d.h"
+#include "../../cub3d.h"
 
-void	init_keys(t_keys *keys)
+char **map(t_data *data)
 {
-	keys->right = false;
-	keys->left = false;
-	keys->back = false;
-	keys->forward = false;
-	keys->rotate_left = false;
-	keys->rotate_right = false;
-	keys->esc = false;
-	keys->up = false;
-	keys->down = false;
+	for ()
+
 }

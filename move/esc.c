@@ -6,13 +6,13 @@
 /*   By: abouazi <abouazi@student.1337.ma>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/07/08 01:41:56 by abouazi           #+#    #+#             */
-/*   Updated: 2023/07/09 02:07:04 by abouazi          ###   ########.fr       */
+/*   Updated: 2023/07/11 08:19:17 by abouazi          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../cub3d.h"
 
-int esc()
+int	esc(void)
 {
 	write(2, "Game Exit Successful", 21);
 	exit(0);

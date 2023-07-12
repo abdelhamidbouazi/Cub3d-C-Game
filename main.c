@@ -6,7 +6,7 @@
 /*   By: abouazi <abouazi@student.1337.ma>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/07/08 00:32:48 by abouazi           #+#    #+#             */
-/*   Updated: 2023/07/11 00:00:18 by abouazi          ###   ########.fr       */
+/*   Updated: 2023/07/12 08:06:31 by abouazi          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -25,7 +25,7 @@ int map[24][24] = {
   {1,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,1},
   {1,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,1},
   {1,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,1},
-  {1,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,1},
+  {1,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,1,0,0,0,0,0,0,1},
   {1,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,1},
   {1,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,1},
   {1,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,1},
@@ -96,9 +96,11 @@ int main(int ac, char **av)
 	data.map = (t_map *)malloc(sizeof(t_map));
 	if (!data.map)
 		return 0;
+
 	if(ac != 2)
 		ft_error("Arguments Number Error!");
-	parser(av, data.map);
+	parser(av, &data);
+
 
 	data.player = (t_player *)malloc(sizeof(t_player));
 	if (data.player == NULL)
@@ -118,12 +120,13 @@ int main(int ac, char **av)
 	data.win = mlx_new_window(data.mlx, SCREEN_WIDTH, SCREEN_HEIGHT, "Cub3D");
 	mlx_hook(data.win, 2, 0L, press, &data);
 	mlx_hook(data.win, 3, 0L, release, &data);
-	mlx_hook(data.win, 17, 1L, esc,NULL);
+	mlx_hook(data.win, 17, 1L, esc, NULL);
 	texture(&data);
 	raycasting(&data);
-	mlx_loop_hook(data.mlx,move,&data);
-	draw_map(&data);
-	draw_player(&data);
+	mlx_loop_hook(data.mlx, move, &data);
+	// refresh(&data);
+	// draw_map(&data);
+	// draw_player(&data);
 	mlx_loop(data.mlx);
 	ft_free(&data);
 }

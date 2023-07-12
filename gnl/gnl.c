@@ -6,7 +6,7 @@
 /*   By: abouazi <abouazi@student.1337.ma>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/06/08 04:26:44 by abouazi           #+#    #+#             */
-/*   Updated: 2023/06/08 04:27:36 by abouazi          ###   ########.fr       */
+/*   Updated: 2023/07/11 08:16:33 by abouazi          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -101,4 +101,3 @@ char	*get_next_line(int fd)
 	leftxt = ft_stock(leftxt);
 	return (line);
 }
-

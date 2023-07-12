@@ -6,13 +6,13 @@
 /*   By: abouazi <abouazi@student.1337.ma>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/07/08 00:32:55 by abouazi           #+#    #+#             */
-/*   Updated: 2023/07/09 08:29:23 by abouazi          ###   ########.fr       */
+/*   Updated: 2023/07/11 08:21:51 by abouazi          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../cub3d.h"
 
-void left(t_data *data)
+void	left(t_data *data)
 {
 	int	x;
 	int	y;
@@ -28,7 +28,4 @@ void left(t_data *data)
 		data->player->y += M_SPEED * sin(data->player->angle - (M_PI
 					/ 2));
 	}
-
 }
-
-

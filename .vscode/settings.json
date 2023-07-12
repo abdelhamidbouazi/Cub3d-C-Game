@@ -11,6 +11,8 @@
 		"stdbool.h": "c",
 		"__mutex_base": "c",
 		"atomic": "c",
-		"memory": "c"
+		"memory": "c",
+		"complex": "c",
+		"chrono": "c"
 	}
 }

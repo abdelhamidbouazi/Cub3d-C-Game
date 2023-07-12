@@ -1,50 +1,5 @@
 make --dry-run --keep-going --print-directory
 make: Entering directory `/Users/abouazi/Desktop/Cub3D_2'
-gcc -Wall -Wextra -Werror -c main.c -o main.o
- 
-gcc -Wall -Wextra -Werror -c move/left.c -o move/left.o
-gcc -Wall -Wextra -Werror -c move/right.c -o move/right.o
-gcc -Wall -Wextra -Werror -c move/forward.c -o move/forward.o
-gcc -Wall -Wextra -Werror -c move/back.c -o move/back.o
-gcc -Wall -Wextra -Werror -c move/rotate_left.c -o move/rotate_left.o
-gcc -Wall -Wextra -Werror -c move/rotate_right.c -o move/rotate_right.o
-gcc -Wall -Wextra -Werror -c move/esc.c -o move/esc.o
-gcc -Wall -Wextra -Werror -c move/init_keys.c -o move/init_keys.o
-gcc -Wall -Wextra -Werror -c move/press.c -o move/press.o
-gcc -Wall -Wextra -Werror -c move/release.c -o move/release.o
-gcc -Wall -Wextra -Werror -c move/move.c -o move/move.o
-gcc -Wall -Wextra -Werror -c cast/raycastingh.c -o cast/raycastingh.o
-gcc -Wall -Wextra -Werror -c cast/raycastingv.c -o cast/raycastingv.o
-gcc -Wall -Wextra -Werror -c cast/distance.c -o cast/distance.o
-gcc -Wall -Wextra -Werror -c cast/is_wall.c -o cast/is_wall.o
-gcc -Wall -Wextra -Werror -c cast/raycasting.c -o cast/raycasting.o
-gcc -Wall -Wextra -Werror -c cast/create_img.c -o cast/create_img.o
-gcc -Wall -Wextra -Werror -c cast/normalizer.c -o cast/normalizer.o
-gcc -Wall -Wextra -Werror -c render/draw3d.c -o render/draw3d.o
-gcc -Wall -Wextra -Werror -c render/my_mlx.c -o render/my_mlx.o
-gcc -Wall -Wextra -Werror -c render/wall.c -o render/wall.o
-gcc -Wall -Wextra -Werror -c render/textures.c -o render/textures.o
-gcc -Wall -Wextra -Werror -c parser/parser.c -o parser/parser.o
-gcc -Wall -Wextra -Werror -c parser/Check/colors.c -o parser/Check/colors.o
-gcc -Wall -Wextra -Werror -c parser/Check/elements.c -o parser/Check/elements.o
-gcc -Wall -Wextra -Werror -c parser/Check/extension.c -o parser/Check/extension.o
-gcc -Wall -Wextra -Werror -c parser/Check/floor_ciel.c -o parser/Check/floor_ciel.o
- 
-gcc -Wall -Wextra -Werror -c parser/Check/headers.c -o parser/Check/headers.o
-gcc -Wall -Wextra -Werror -c parser/Check/textures.c -o parser/Check/textures.o
-gcc -Wall -Wextra -Werror -c parser/Fill/colors.c -o parser/Fill/colors.o
-gcc -Wall -Wextra -Werror -c parser/Fill/textures.c -o parser/Fill/textures.o
-gcc -Wall -Wextra -Werror -c parser/Read/map.c -o parser/Read/map.o
-gcc -Wall -Wextra -Werror -c parser/utils/free_split.c -o parser/utils/free_split.o
-gcc -Wall -Wextra -Werror -c gnl/gnl.c -o gnl/gnl.o
-gcc -Wall -Wextra -Werror -c gnl/gnl_utils.c -o gnl/gnl_utils.o
+gcc -Wall -Wextra -Werror main.o move/left.o move/right.o move/forward.o move/back.o move/rotate_left.o move/rotate_right.o move/esc.o move/init_keys.o move/press.o move/release.o move/move.o cast/raycastingh.o cast/raycastingv.o cast/distance.o cast/is_wall.o cast/raycasting.o cast/create_img.o cast/normalizer.o render/draw3d.o render/my_mlx.o render/wall.o render/textures.o parser/parser.o parser/Check/colors.o parser/Check/elements.o parser/Check/extension.o parser/Check/floor_ciel.o parser/Check/headers.o parser/Check/textures.o parser/Fill/colors.o parser/Fill/textures.o parser/Read/map.o utils/ft_atoi.o utils/ft_error.o utils/ft_split.o utils/ft_strcmp.o utils/ft_strncmp.o utils/ft_substr.o utils/ft_strndup.o parser/utils/free_split.o gnl/gnl.o gnl/gnl_utils.o  -lmlx -framework OpenGL -framework AppKit  -o cub3D
 make: Leaving directory `/Users/abouazi/Desktop/Cub3D_2'
  
-make: *** No rule to make target `utils/ft_atoi.o', needed by `cub3D'.
-make: *** No rule to make target `utils/ft_error.o', needed by `cub3D'.
-make: *** No rule to make target `utils/ft_split.o', needed by `cub3D'.
-make: *** No rule to make target `utils/ft_strcmp.o', needed by `cub3D'.
-make: *** No rule to make target `utils/ft_strncmp.o', needed by `cub3D'.
-make: *** No rule to make target `utils/ft_substr.o', needed by `cub3D'.
-make: *** No rule to make target `utils/ft_strndup.o', needed by `cub3D'.
-

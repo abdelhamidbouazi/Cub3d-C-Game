@@ -6,7 +6,7 @@
 /*   By: abouazi <abouazi@student.1337.ma>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/07/08 00:34:29 by abouazi           #+#    #+#             */
-/*   Updated: 2023/07/10 23:28:12 by abouazi          ###   ########.fr       */
+/*   Updated: 2023/07/12 03:02:57 by abouazi          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -149,7 +149,7 @@ typedef struct s_data{
 }t_data;
 
 // Parsing
-void parser(char **arg, t_map *map);
+void parser(char **arg, t_data *data);
 // Check
 void	colors(t_map *game);
 int 	is_valid_color(t_color color);
@@ -205,6 +205,7 @@ void right(t_data *data);
 void rotate_left(t_data *data);
 void rotate_right(t_data *data);
 int esc();
+// void	refresh(t_data *data);
 
 // cast
 void raycasting(t_data *data);

@@ -6,13 +6,14 @@
 /*   By: abouazi <abouazi@student.1337.ma>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/07/08 05:15:05 by abouazi           #+#    #+#             */
-/*   Updated: 2023/07/10 06:59:02 by abouazi          ###   ########.fr       */
+/*   Updated: 2023/07/11 08:14:11 by abouazi          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../cub3d.h"
 
-void init_steps_horizental(t_data *data,double ray_angle, double *stepx, double *stepy)
+void	init_steps_horizental(t_data *data, double ray_angle, \
+								double *stepx, double *stepy)
 {
 	*stepy = WALL;
 	if (!(ray_angle > 0 && ray_angle < M_PI))
@@ -33,16 +34,17 @@ double	raycastingh(t_data *data, double ray_angle)
 	double	stepy;
 
 	data->check = 0;
-	data->ray->f_y_h = floor(data->player->y / WALL ) * WALL;
+	data->ray->f_y_h = floor(data->player->y / WALL) * WALL;
 	if ((ray_angle > 0 && ray_angle < M_PI))
 		data->ray->f_y_h += WALL;
-	data->ray->f_x_h = data->player->x + (data->ray->f_y_h - data->player->y) / tan(ray_angle);
-	init_steps_horizental(data,ray_angle,&stepx,&stepy);
+	data->ray->f_x_h = data->player->x + \
+		(data->ray->f_y_h - data->player->y) / tan(ray_angle);
+	init_steps_horizental(data, ray_angle, &stepx, &stepy);
 	while (is_wall(data, data->ray->f_x_h, data->ray->f_y_h, 1))
 	{
 		data->ray->f_x_h += stepx;
 		data->ray->f_y_h += stepy;
 	}
-	return (distance(data->player->x, data->ray->f_x_h, data->player->y,
-			 data->ray->f_y_h));
+	return (distance(data->player->x, data->ray->f_x_h, \
+			data->player->y, data->ray->f_y_h));
 }
