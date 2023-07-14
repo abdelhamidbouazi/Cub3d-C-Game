@@ -6,11 +6,26 @@
 /*   By: abouazi <abouazi@student.1337.ma>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/07/10 06:56:49 by abouazi           #+#    #+#             */
-/*   Updated: 2023/07/14 17:49:56 by abouazi          ###   ########.fr       */
+/*   Updated: 2023/07/14 19:21:17 by abouazi          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../cub3d.h"
+
+void	assign_values(t_data *data, int *x, int *y, int *n)
+{
+	if (data->ray->flag == 1)
+	{
+		*x = data->ray->f_x_v;
+		*y = data->ray->f_y_v;
+	}
+	else if (data->ray->flag == 0)
+	{
+		*x = data->ray->f_x_h;
+		*y = data->ray->f_y_h;
+	}
+	*n = 0;
+}
 
 void	wall(t_data *data, int ray, double ciel_height, \
 			double floor_height, double ray_angle)
@@ -21,17 +36,7 @@ void	wall(t_data *data, int ray, double ciel_height, \
 	int		n;
 	int		m;
 
-	if (data->ray->flag == 1)
-	{
-		x = data->ray->f_x_v;
-		y = data->ray->f_y_v;
-	}
-	else if (data->ray->flag == 0)
-	{
-		x = data->ray->f_x_h;
-		y = data->ray->f_y_h;
-	}
-	n = 0;
+	assign_values(data, &x, &y, &n);
 	render_top = ciel_height;
 	while (ciel_height <= floor_height)
 	{

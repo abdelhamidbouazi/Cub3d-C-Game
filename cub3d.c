@@ -6,7 +6,7 @@
 /*   By: abouazi <abouazi@student.1337.ma>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/07/08 00:32:48 by abouazi           #+#    #+#             */
-/*   Updated: 2023/07/14 18:43:33 by abouazi          ###   ########.fr       */
+/*   Updated: 2023/07/14 19:14:28 by abouazi          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -75,7 +75,9 @@ int	main(int ac, char **av)
 	mlx_hook(data.win, 2, 0L, press, &data);
 	mlx_hook(data.win, 3, 0L, release, &data);
 	mlx_hook(data.win, 17, 1L, esc, NULL);
-	texture(&data);
+	// texture(&data);
+	texture_so_and_ea(&data);
+	texture_no_and_we(&data);
 	raycasting(&data);
 	mlx_loop_hook(data.mlx, move, &data);
 	mlx_loop(data.mlx);

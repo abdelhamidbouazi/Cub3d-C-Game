@@ -6,7 +6,7 @@
 /*   By: abouazi <abouazi@student.1337.ma>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/07/08 00:34:29 by abouazi           #+#    #+#             */
-/*   Updated: 2023/07/14 18:45:07 by abouazi          ###   ########.fr       */
+/*   Updated: 2023/07/14 19:13:15 by abouazi          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -205,7 +205,8 @@ void	draw3d(t_data *data, double ray_distance, double ray_angle, int ray);
 void	my_mlx_pixel_put(t_data *data, int x, int y, int color);
 void	wall(t_data *data, int ray, double ciel_height, \
 			double floor_height, double ray_angle);
-void	texture(t_data *data);
+void	texture_so_and_ea(t_data *data);
+void	texture_no_and_we(t_data *data);
 void	draw_square(t_data *data, int x_start, int y_start, int color);
 void	draw_map(t_data *data);
 void	draw_player(t_data *data);

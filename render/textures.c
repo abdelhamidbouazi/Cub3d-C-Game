@@ -6,13 +6,13 @@
 /*   By: abouazi <abouazi@student.1337.ma>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/07/10 07:01:45 by abouazi           #+#    #+#             */
-/*   Updated: 2023/07/14 17:42:04 by abouazi          ###   ########.fr       */
+/*   Updated: 2023/07/14 19:13:26 by abouazi          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../cub3d.h"
 
-void	texture(t_data *data)
+void	texture_so_and_ea(t_data *data)
 {
 	int	h;
 	int	w;
@@ -31,6 +31,13 @@ void	texture(t_data *data)
 			&data->image.bit_pixel,
 			&data->image.line_len,
 			&data->image.endian);
+}
+
+void	texture_no_and_we(t_data *data)
+{
+	int	h;
+	int	w;
+
 	data->image.img_window = mlx_xpm_file_to_image(data->mlx, \
 		data->map->no, &w, &h);
 	if (!data->image.img_window)

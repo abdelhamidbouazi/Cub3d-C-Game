@@ -6,11 +6,23 @@
 /*   By: abouazi <abouazi@student.1337.ma>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/06/11 05:41:30 by abouazi           #+#    #+#             */
-/*   Updated: 2023/07/14 18:37:08 by abouazi          ###   ########.fr       */
+/*   Updated: 2023/07/14 19:09:59 by abouazi          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../../cub3d.h"
+
+void	assign_texture(char *key, char *value, t_map *map)
+{
+	if (ft_strcmp(key, "NO") == 0)
+		map->no = ft_strdup(value);
+	else if (ft_strcmp(key, "SO") == 0)
+		map->so = ft_strdup(value);
+	else if (ft_strcmp(key, "EA") == 0)
+		map->ea = ft_strdup(value);
+	else if (ft_strcmp(key, "WE") == 0)
+		map->we = ft_strdup(value);
+}
 
 void	textures(t_data *data)
 {
@@ -26,14 +38,7 @@ void	textures(t_data *data)
 			free_splt(split);
 			return ;
 		}
-		if (ft_strcmp(split[0], "NO") == 0)
-			data->map->no = ft_strdup(split[1]);
-		else if (ft_strcmp(split[0], "SO") == 0)
-			data->map->so = ft_strdup(split[1]);
-		else if (ft_strcmp(split[0], "EA") == 0)
-			data->map->ea = ft_strdup(split[1]);
-		else if (ft_strcmp(split[0], "WE") == 0)
-			data->map->we = ft_strdup(split[1]);
+		assign_texture(split[0], split[1], data->map);
 		free_splt(split);
 		i++;
 	}
