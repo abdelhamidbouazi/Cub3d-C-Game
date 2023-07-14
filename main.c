@@ -6,7 +6,7 @@
 /*   By: abouazi <abouazi@student.1337.ma>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/07/08 00:32:48 by abouazi           #+#    #+#             */
-/*   Updated: 2023/07/12 08:06:31 by abouazi          ###   ########.fr       */
+/*   Updated: 2023/07/14 17:51:52 by abouazi          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -39,7 +39,7 @@ int map[24][24] = {
   {1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1}
 };
 
-void ft_free(t_data *data)
+void	ft_free(t_data *data)
 {
 	free(data->map);
 	free(data->player);
@@ -47,19 +47,18 @@ void ft_free(t_data *data)
 	free(data->keys);
 }
 
-
-
-void draw_square(t_data *data, int x_start, int y_start,int color)
+void	draw_square(t_data *data, int x_start, int y_start, int color)
 {
-	for(int x  = 0 ; x < 4 ; x++)
+	for (int x  = 0 ; x < 4 ; x++)
 	{
-		for(int y  = 0 ; y < 4 ; y++)
+		for (int y  = 0; y < 4 ; y++)
 		{
 			my_mlx_pixel_put(data, x_start + x,y_start + y,color);
 		}
 	}
 }
-void draw_map(t_data *data)
+
+void	draw_map(t_data *data)
 {
 	for(int y = 0; y < 24; y++)
 	{
@@ -70,7 +69,8 @@ void draw_map(t_data *data)
 		}
 	}
 }
-void draw_player(t_data *data)
+
+void	draw_player(t_data *data)
 {
 	for(int x  = 1 ; x < 6 ; x++)
 	{
@@ -81,7 +81,7 @@ void draw_player(t_data *data)
 	}
 }
 
-void init_player(t_player *player)
+void	init_player(t_player *player)
 {
 	player->angle = 0;
 	player->x = 41;
@@ -89,7 +89,7 @@ void init_player(t_player *player)
 	player->fov = M_PI / 3;
 }
 
-int main(int ac, char **av)
+int	main(int ac, char **av)
 {
 	t_data data;
 

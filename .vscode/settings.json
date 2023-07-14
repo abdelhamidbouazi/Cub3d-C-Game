@@ -13,6 +13,14 @@
 		"atomic": "c",
 		"memory": "c",
 		"complex": "c",
-		"chrono": "c"
+		"chrono": "c",
+		"__hash_table": "c",
+		"__locale": "c",
+		"__threading_support": "c",
+		"algorithm": "c",
+		"functional": "c",
+		"locale": "c",
+		"type_traits": "c",
+		"typeinfo": "c"
 	}
 }

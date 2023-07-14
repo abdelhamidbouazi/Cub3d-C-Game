@@ -6,7 +6,7 @@
 /*   By: abouazi <abouazi@student.1337.ma>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/07/10 06:34:59 by abouazi           #+#    #+#             */
-/*   Updated: 2023/07/11 08:11:00 by abouazi          ###   ########.fr       */
+/*   Updated: 2023/07/14 17:36:17 by abouazi          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -32,12 +32,12 @@ void	raycasting(t_data *data)
 		if (dish > disv)
 		{
 			data->ray->flag = 1;
-			draw3D(data, disv, ray_angle, i);
+			draw3d(data, disv, ray_angle, i);
 		}
 		else
 		{
 			data->ray->flag = 0;
-			draw3D(data, dish, ray_angle, i);
+			draw3d(data, dish, ray_angle, i);
 		}
 		ray_angle += (data->player->fov / number_rays);
 		i++;

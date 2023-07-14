@@ -6,18 +6,18 @@
 /*   By: abouazi <abouazi@student.1337.ma>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/06/25 03:46:55 by abouazi           #+#    #+#             */
-/*   Updated: 2023/06/25 04:16:59 by abouazi          ###   ########.fr       */
+/*   Updated: 2023/07/14 17:31:57 by abouazi          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../../includes/cub3d.h"
 
-void free_splt(char **tab)
+void	free_splt(char **tab)
 {
-    unsigned int i = 0;
+	unsigned int	i;
 
-    while (tab[i] != NULL)
-        free(tab[i++]);
-
-    free(tab);
+	i = 0;
+	while (tab[i] != NULL)
+		free(tab[i++]);
+	free(tab);
 }

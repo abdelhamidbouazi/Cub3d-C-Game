@@ -6,7 +6,7 @@
 /*   By: abouazi <abouazi@student.1337.ma>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/06/09 19:09:40 by abouazi           #+#    #+#             */
-/*   Updated: 2023/07/12 08:05:46 by abouazi          ###   ########.fr       */
+/*   Updated: 2023/07/14 17:19:43 by abouazi          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,7 +17,7 @@ void	elements(char **map)
 	int	i;
 
 	i = 0;
-	while(map[i] && ft_strcmp(map[i], "\n") == 0)
+	while (map[i] && ft_strcmp(map[i], "\n") == 0)
 		i++;
 	headers(map, &i);
 	while (map[i] && ft_strcmp(map[i], "\n") == 0)

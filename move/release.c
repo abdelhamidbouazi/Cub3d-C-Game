@@ -6,31 +6,27 @@
 /*   By: abouazi <abouazi@student.1337.ma>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/07/10 06:42:38 by abouazi           #+#    #+#             */
-/*   Updated: 2023/07/10 06:43:38 by abouazi          ###   ########.fr       */
+/*   Updated: 2023/07/14 17:12:33 by abouazi          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../cub3d.h"
 
-int release(int key, t_data *data)
+int	release(int key, t_data *data)
 {
-	if(key == FORWARD)
+	if (key == FORWARD)
 		data->keys->forward = false;
-	else if(key == BACK)
+	else if (key == BACK)
 		data->keys->back = false;
-	else if(key == LEFT)
+	else if (key == LEFT)
 		data->keys->left = false;
-	else if(key == RIGHT)
+	else if (key == RIGHT)
 		data->keys->right = false;
-	else if(key == ROTATE_LEFT)
+	else if (key == ROTATE_LEFT)
 		data->keys->rotate_left = false;
-	else if(key == ROTATE_RIGHT)
+	else if (key == ROTATE_RIGHT)
 		data->keys->rotate_right = false;
-	else if(key == ESC)
+	else if (key == ESC)
 		data->keys->esc = false;
-	// else if(key == UP)
-	// 	keys->up = false;
-	// else if(key == DOWN)
-	// 	keys->down = false;
-	return 0;
+	return (0);
 }

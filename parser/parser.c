@@ -6,13 +6,13 @@
 /*   By: abouazi <abouazi@student.1337.ma>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/06/07 21:40:51 by abouazi           #+#    #+#             */
-/*   Updated: 2023/07/12 03:03:16 by abouazi          ###   ########.fr       */
+/*   Updated: 2023/07/14 17:14:27 by abouazi          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../cub3d.h"
 
-void parser(char **arg, t_data *data)
+void	parser(char **arg, t_data *data)
 {
 	if (extension(arg[1]))
 		ft_error("Check File Name !");
@@ -26,6 +26,4 @@ void parser(char **arg, t_data *data)
 	elements(data->map->map);
 	textures(data->map);
 	colors(data->map);
-	// map(&data);
 }
-
