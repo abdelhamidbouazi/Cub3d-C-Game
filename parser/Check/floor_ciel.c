@@ -6,11 +6,11 @@
 /*   By: abouazi <abouazi@student.1337.ma>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/06/11 05:01:19 by abouazi           #+#    #+#             */
-/*   Updated: 2023/07/14 17:22:11 by abouazi          ###   ########.fr       */
+/*   Updated: 2023/07/14 18:12:29 by abouazi          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "../../includes/cub3d.h"
+#include "../../cub3d.h"
 
 void	floor_ciel(char **map, int *index)
 {

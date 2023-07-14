@@ -6,11 +6,11 @@
 /*   By: abouazi <abouazi@student.1337.ma>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/07/08 00:34:29 by abouazi           #+#    #+#             */
-/*   Updated: 2023/07/14 18:03:14 by abouazi          ###   ########.fr       */
+/*   Updated: 2023/07/14 18:45:07 by abouazi          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-# ifndef CUB3D_H
+#ifndef CUB3D_H
 # define CUB3D_H
 
 # include <mlx.h>
@@ -21,6 +21,7 @@
 # include <unistd.h>
 # include <fcntl.h>
 
+# define BUFFER_SIZE 1
 # define WALL_WIDTH 40
 # define WALL_HEIGHT 40
 # define SCREEN_WIDTH 960
@@ -59,7 +60,7 @@ typedef struct s_color
 
 typedef struct s_map {
 	int		fd;
-	char	**map;
+	char	**file;
 	int		i;
 	char	*tmp;
 	int		line;
@@ -144,7 +145,7 @@ typedef struct s_data{
 // Parsing
 void	parser(char **arg, t_data *data);
 // Check
-void	colors(t_map *game);
+void	colors(t_data *game);
 int		is_valid_color(t_color color);
 void	elements(char **map);
 int		extension(char *arg);
@@ -153,7 +154,7 @@ void	headers(char **map, int *index);
 int		is_texture_missing(const char *texture_path);
 // Fill
 void	rgb(t_color *color, char **str);
-void	textures(t_map *game);
+void	textures(t_data *data);
 // Read
 char	**read_map(char	**av);
 int		num_of_lines(char **av);
@@ -205,6 +206,10 @@ void	my_mlx_pixel_put(t_data *data, int x, int y, int color);
 void	wall(t_data *data, int ray, double ciel_height, \
 			double floor_height, double ray_angle);
 void	texture(t_data *data);
+void	draw_square(t_data *data, int x_start, int y_start, int color);
+void	draw_map(t_data *data);
+void	draw_player(t_data *data);
+void	ft_free(t_data *data);
 void	draw_square(t_data *data, int x_start, int y_start, int color);
 void	draw_map(t_data *data);
 void	draw_player(t_data *data);

@@ -6,11 +6,11 @@
 /*   By: abouazi <abouazi@student.1337.ma>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/06/09 19:09:40 by abouazi           #+#    #+#             */
-/*   Updated: 2023/07/14 17:19:43 by abouazi          ###   ########.fr       */
+/*   Updated: 2023/07/14 18:12:20 by abouazi          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "../../includes/cub3d.h"
+#include "../../cub3d.h"
 
 void	elements(char **map)
 {

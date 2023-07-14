@@ -6,11 +6,11 @@
 /*   By: abouazi <abouazi@student.1337.ma>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/11/05 18:00:17 by abouazi           #+#    #+#             */
-/*   Updated: 2023/06/11 06:14:44 by abouazi          ###   ########.fr       */
+/*   Updated: 2023/07/14 18:38:56 by abouazi          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "../includes/cub3d.h"
+#include "../cub3d.h"
 
 int	ft_atoi(const char *str)
 {

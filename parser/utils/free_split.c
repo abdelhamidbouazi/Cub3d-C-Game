@@ -6,11 +6,11 @@
 /*   By: abouazi <abouazi@student.1337.ma>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/06/25 03:46:55 by abouazi           #+#    #+#             */
-/*   Updated: 2023/07/14 17:31:57 by abouazi          ###   ########.fr       */
+/*   Updated: 2023/07/14 18:16:38 by abouazi          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "../../includes/cub3d.h"
+#include "../../cub3d.h"
 
 void	free_splt(char **tab)
 {

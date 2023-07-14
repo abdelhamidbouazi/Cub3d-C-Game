@@ -6,11 +6,11 @@
 /*   By: abouazi <abouazi@student.1337.ma>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/06/11 05:00:10 by abouazi           #+#    #+#             */
-/*   Updated: 2023/07/14 17:23:00 by abouazi          ###   ########.fr       */
+/*   Updated: 2023/07/14 18:14:37 by abouazi          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "../../includes/cub3d.h"
+#include "../../cub3d.h"
 
 void	headers(char **map, int *index)
 {
@@ -19,10 +19,10 @@ void	headers(char **map, int *index)
 	count = 0;
 	while (*index < 4 && map[*index] != NULL)
 	{
-		if (strncmp(map[*index], "NO ", 3) == 0 \
-			|| strncmp(map[*index], "SO ", 3) == 0 \
-			|| strncmp(map[*index], "WE ", 3) == 0 \
-			|| strncmp(map[*index], "EA ", 3) == 0)
+		if (ft_strncmp(map[*index], "NO ", 3) == 0 \
+			|| ft_strncmp(map[*index], "SO ", 3) == 0 \
+			|| ft_strncmp(map[*index], "WE ", 3) == 0 \
+			|| ft_strncmp(map[*index], "EA ", 3) == 0)
 			count++;
 		(*index)++;
 	}

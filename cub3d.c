@@ -5,20 +5,79 @@
 /*                                                    +:+ +:+         +:+     */
 /*   By: abouazi <abouazi@student.1337.ma>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2023/06/07 21:27:48 by abouazi           #+#    #+#             */
-/*   Updated: 2023/07/10 07:09:35 by abouazi          ###   ########.fr       */
+/*   Created: 2023/07/08 00:32:48 by abouazi           #+#    #+#             */
+/*   Updated: 2023/07/14 18:43:33 by abouazi          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "includes/cub3d.h"
+#include "cub3d.h"
 
-int main(int ac, char **av)
+int map[24][24] = {
+  {1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1},
+  {1,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,1},
+  {1,0,1,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,1},
+  {1,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,1},
+  {1,0,0,0,0,0,1,1,1,1,1,0,0,0,0,1,0,1,0,1,0,0,0,1},
+  {1,0,0,0,0,0,1,0,0,0,1,0,0,0,0,0,0,0,0,0,0,0,0,1},
+  {1,0,0,0,0,0,1,0,0,0,1,0,0,0,0,1,0,0,0,1,0,0,0,1},
+  {1,0,0,0,0,0,1,0,0,0,1,0,0,0,0,0,0,0,0,0,0,0,0,1},
+  {1,0,0,0,0,0,1,1,0,1,1,0,0,0,0,1,0,1,0,1,0,0,0,1},
+  {1,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,1},
+  {1,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,1},
+  {1,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,1},
+  {1,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,1,0,0,0,0,0,0,1},
+  {1,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,1},
+  {1,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,1},
+  {1,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,1},
+  {1,1,1,1,1,1,1,1,1,0,0,0,0,0,0,0,0,0,0,0,0,0,0,1},
+  {1,1,0,1,0,0,0,0,1,0,0,0,0,0,0,0,0,0,0,0,0,0,0,1},
+  {1,1,0,0,0,0,1,0,1,0,0,0,0,0,0,0,0,0,0,0,0,0,0,1},
+  {1,1,0,1,0,0,0,0,1,0,0,0,0,0,0,0,0,0,0,0,0,0,0,1},
+  {1,1,0,1,1,1,1,1,1,0,0,0,0,0,0,0,0,0,0,0,0,0,0,1},
+  {1,1,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,1},
+  {1,1,1,1,1,1,1,1,1,0,0,0,0,0,0,0,0,0,0,0,0,0,0,1},
+  {1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1}
+};
+
+void	init_player(t_player *player)
 {
-	c_game	map;
+	player->angle = 0;
+	player->x = 41;
+	player->y = 41;
+	player->fov = M_PI / 3;
+}
 
-	if(ac != 2)
+int	main(int ac, char **av)
+{
+	t_data	data;
+
+	data.map = (t_map *)malloc(sizeof(t_map));
+	if (!data.map)
+		return (0);
+	if (ac != 2)
 		ft_error("Arguments Number Error!");
-	parser(av, &map);
-	printf("Parsing finished");
-	return 0;
+	parser(av, &data);
+	data.player = (t_player *)malloc(sizeof(t_player));
+	if (data.player == NULL)
+		return (0);
+	data.ray = (t_ray *)malloc(sizeof(t_ray));
+	if (data.ray == NULL)
+		return (0);
+	init_player(data.player);
+	data.keys = (t_keys *)malloc(sizeof(t_keys));
+	if (data.keys == NULL)
+		return (0);
+	init_keys(data.keys);
+	data.wall_width = WALL_WIDTH;
+	data.wall_height = WALL_HEIGHT;
+	data.mlx = mlx_init();
+	data.win = mlx_new_window(data.mlx, SCREEN_WIDTH, SCREEN_HEIGHT, "Cub3D");
+	mlx_hook(data.win, 2, 0L, press, &data);
+	mlx_hook(data.win, 3, 0L, release, &data);
+	mlx_hook(data.win, 17, 1L, esc, NULL);
+	texture(&data);
+	raycasting(&data);
+	mlx_loop_hook(data.mlx, move, &data);
+	mlx_loop(data.mlx);
+	ft_free(&data);
 }

@@ -6,11 +6,11 @@
 /*   By: abouazi <abouazi@student.1337.ma>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/06/25 03:22:31 by abouazi           #+#    #+#             */
-/*   Updated: 2023/06/25 04:17:27 by abouazi          ###   ########.fr       */
+/*   Updated: 2023/07/14 18:39:15 by abouazi          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "../includes/cub3d.h"
+#include "../cub3d.h"
 
 char	*ft_strndup(char *s1, int n)
 {

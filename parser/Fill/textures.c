@@ -6,13 +6,13 @@
 /*   By: abouazi <abouazi@student.1337.ma>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/06/11 05:41:30 by abouazi           #+#    #+#             */
-/*   Updated: 2023/07/14 17:35:53 by abouazi          ###   ########.fr       */
+/*   Updated: 2023/07/14 18:37:08 by abouazi          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "../../includes/cub3d.h"
+#include "../../cub3d.h"
 
-void	textures(c_game *game)
+void	textures(t_data *data)
 {
 	int		i;
 	char	**split;
@@ -20,27 +20,27 @@ void	textures(c_game *game)
 	i = 0;
 	while (i < 4)
 	{
-		split = ft_split(game->map.map[i], ", \n");
+		split = ft_split(data->map->file[i], ", \n");
 		if (!split[0])
 		{
 			free_splt(split);
 			return ;
 		}
 		if (ft_strcmp(split[0], "NO") == 0)
-			game->map.no = ft_strdup(split[1]);
+			data->map->no = ft_strdup(split[1]);
 		else if (ft_strcmp(split[0], "SO") == 0)
-			game->map.so = ft_strdup(split[1]);
+			data->map->so = ft_strdup(split[1]);
 		else if (ft_strcmp(split[0], "EA") == 0)
-			game->map.ea = ft_strdup(split[1]);
+			data->map->ea = ft_strdup(split[1]);
 		else if (ft_strcmp(split[0], "WE") == 0)
-			game->map.we = ft_strdup(split[1]);
+			data->map->we = ft_strdup(split[1]);
 		free_splt(split);
 		i++;
 	}
-	if (is_texture_missing(game->map.no) || \
-		is_texture_missing(game->map.so) || \
-		is_texture_missing(game->map.ea) || \
-		is_texture_missing(game->map.we))
+	if (is_texture_missing(data->map->no) || \
+		is_texture_missing(data->map->so) || \
+		is_texture_missing(data->map->ea) || \
+		is_texture_missing(data->map->we))
 	{
 		ft_error("Texture not found!!");
 	}

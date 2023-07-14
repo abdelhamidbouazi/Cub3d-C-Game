@@ -1,20 +1,21 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   colors.c                                           :+:      :+:    :+:   */
+/*   ft_free.c                                          :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: abouazi <abouazi@student.1337.ma>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2023/06/11 06:02:02 by abouazi           #+#    #+#             */
-/*   Updated: 2023/07/14 18:12:57 by abouazi          ###   ########.fr       */
+/*   Created: 2023/07/14 18:18:07 by abouazi           #+#    #+#             */
+/*   Updated: 2023/07/14 18:18:53 by abouazi          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "../../cub3d.h"
+#include "../cub3d.h"
 
-void	rgb(t_color *color, char **str)
+void	ft_free(t_data *data)
 {
-	color->r = ft_atoi(str[0]);
-	color->g = ft_atoi(str[1]);
-	color->b = ft_atoi(str[2]);
+	free(data->map);
+	free(data->player);
+	free(data->ray);
+	free(data->keys);
 }

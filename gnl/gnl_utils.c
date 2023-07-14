@@ -6,11 +6,11 @@
 /*   By: abouazi <abouazi@student.1337.ma>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/06/08 04:27:57 by abouazi           #+#    #+#             */
-/*   Updated: 2023/06/08 04:28:14 by abouazi          ###   ########.fr       */
+/*   Updated: 2023/07/14 18:40:04 by abouazi          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "../includes/cub3d.h"
+#include "../cub3d.h"
 
 size_t	ft_strlen(const char *s)
 {

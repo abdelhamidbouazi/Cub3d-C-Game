@@ -6,11 +6,11 @@
 /*   By: abouazi <abouazi@student.1337.ma>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/06/25 03:45:00 by abouazi           #+#    #+#             */
-/*   Updated: 2023/07/14 17:23:32 by abouazi          ###   ########.fr       */
+/*   Updated: 2023/07/14 18:12:37 by abouazi          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "../../includes/cub3d.h"
+#include "../../cub3d.h"
 
 int	is_texture_missing(const char *texture_path)
 {

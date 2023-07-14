@@ -6,11 +6,11 @@
 /*   By: abouazi <abouazi@student.1337.ma>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/06/25 03:36:52 by abouazi           #+#    #+#             */
-/*   Updated: 2023/06/25 04:17:16 by abouazi          ###   ########.fr       */
+/*   Updated: 2023/07/14 18:39:18 by abouazi          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "../includes/cub3d.h"
+#include "../cub3d.h"
 
 char	*ft_substr(char const *s, unsigned int start, size_t len)
 {

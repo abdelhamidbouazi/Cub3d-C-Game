@@ -6,7 +6,7 @@
 /*   By: abouazi <abouazi@student.1337.ma>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/06/07 21:40:51 by abouazi           #+#    #+#             */
-/*   Updated: 2023/07/14 17:14:27 by abouazi          ###   ########.fr       */
+/*   Updated: 2023/07/14 18:36:51 by abouazi          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -22,8 +22,8 @@ void	parser(char **arg, t_data *data)
 		close(data->map->fd);
 		ft_error("Opening file error !");
 	}
-	data->map->map = read_map(arg);
-	elements(data->map->map);
-	textures(data->map);
-	colors(data->map);
+	data->map->file = read_map(arg);
+	elements(data->map->file);
+	textures(data);
+	colors(data);
 }

@@ -6,11 +6,11 @@
 /*   By: abouazi <abouazi@student.1337.ma>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/06/08 04:26:44 by abouazi           #+#    #+#             */
-/*   Updated: 2023/07/11 08:16:33 by abouazi          ###   ########.fr       */
+/*   Updated: 2023/07/14 18:39:24 by abouazi          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "../includes/cub3d.h"
+#include "../cub3d.h"
 
 char	*ft_read(char *leftxt, int fd)
 {

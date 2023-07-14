@@ -6,11 +6,11 @@
 /*   By: abouazi <abouazi@student.1337.ma>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/11/13 03:25:40 by abouazi           #+#    #+#             */
-/*   Updated: 2023/06/13 17:14:42 by abouazi          ###   ########.fr       */
+/*   Updated: 2023/07/14 18:39:08 by abouazi          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "../includes/cub3d.h"
+#include "../cub3d.h"
 
 static char	**malloc_error(char **tab)
 {
