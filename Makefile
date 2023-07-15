@@ -6,7 +6,7 @@
 #    By: abouazi <abouazi@student.1337.ma>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2023/06/07 20:37:18 by abouazi           #+#    #+#              #
-#    Updated: 2023/07/15 02:26:45 by abouazi          ###   ########.fr        #
+#    Updated: 2023/07/15 03:11:56 by abouazi          ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -21,7 +21,7 @@ READ = parser/Read/map.c
 
 UTILS = utils/ft_atoi.c utils/ft_error.c utils/ft_split.c utils/ft_strcmp.c \
 		utils/ft_strncmp.c utils/ft_substr.c utils/ft_strndup.c \
-		parser/utils/free_split.c utils/ft_free.c
+		parser/utils/free_split.c utils/ft_free.c utils/found_char.c
 
 GNL = gnl/gnl.c gnl/gnl_utils.c
 

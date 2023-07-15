@@ -6,7 +6,7 @@
 /*   By: abouazi <abouazi@student.1337.ma>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/07/08 00:34:29 by abouazi           #+#    #+#             */
-/*   Updated: 2023/07/15 02:28:06 by abouazi          ###   ########.fr       */
+/*   Updated: 2023/07/15 03:11:24 by abouazi          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -167,6 +167,7 @@ int		num_of_lines(char **av);
 char	**read_map(char	**av);
 // Utils
 void	free_splt(char **tab);
+int		found_char(char c, char *set);
 // utils
 void	ft_error(char *err);
 int		ft_strcmp(char *s1, char *s2);
