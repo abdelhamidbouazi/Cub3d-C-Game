@@ -6,7 +6,7 @@
 /*   By: abouazi <abouazi@student.1337.ma>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/06/07 21:40:51 by abouazi           #+#    #+#             */
-/*   Updated: 2023/07/14 20:52:47 by abouazi          ###   ########.fr       */
+/*   Updated: 2023/07/15 02:27:13 by abouazi          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -26,4 +26,7 @@ void	parser(char **arg, t_data *data)
 	elements(data->map->file);
 	textures(data);
 	colors(data);
+	map(data);
+	player(data);
+
 }

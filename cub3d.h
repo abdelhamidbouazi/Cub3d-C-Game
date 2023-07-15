@@ -6,7 +6,7 @@
 /*   By: abouazi <abouazi@student.1337.ma>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/07/08 00:34:29 by abouazi           #+#    #+#             */
-/*   Updated: 2023/07/14 19:13:15 by abouazi          ###   ########.fr       */
+/*   Updated: 2023/07/15 02:28:06 by abouazi          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -41,7 +41,7 @@
 # define M_SPEED 8
 # define M_ROTATE 3
 
-int	map[24][24];
+// int	map[24][24];
 
 typedef struct s_key
 {
@@ -59,6 +59,7 @@ typedef struct s_color
 }	t_color;
 
 typedef struct s_map {
+	char 	**map;
 	int		fd;
 	char	**file;
 	int		i;
@@ -71,12 +72,15 @@ typedef struct s_map {
 	char	*ea;
 	int		col;
 	int		row;
+	char	view_direction;
 	t_color	floor;
 	t_color	ciel;
 }	t_map;
 
 typedef struct s_player
 {
+	int		p_x;
+	int		p_y;
 	double	x;
 	double	y;
 	double	angle;
@@ -155,6 +159,8 @@ int		is_texture_missing(const char *texture_path);
 // Fill
 void	rgb(t_color *color, char **str);
 void	textures(t_data *data);
+void	map(t_data *data);
+void	player(t_data *data);
 // Read
 char	**read_map(char	**av);
 int		num_of_lines(char **av);

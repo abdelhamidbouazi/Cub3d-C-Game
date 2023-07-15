@@ -6,7 +6,7 @@
 /*   By: abouazi <abouazi@student.1337.ma>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/07/14 18:20:32 by abouazi           #+#    #+#             */
-/*   Updated: 2023/07/14 18:32:21 by abouazi          ###   ########.fr       */
+/*   Updated: 2023/07/15 02:23:59 by abouazi          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -37,7 +37,7 @@ void	draw_map(t_data *data)
 		x = 0;
 		while (x < 24)
 		{
-			if (map[y][x] == 1)
+			if (data->map->map[y][x] == 1)
 				draw_square(data, x * 4, y * 4, 255);
 		}
 	}

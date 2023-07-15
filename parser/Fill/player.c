@@ -1,31 +1,37 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   left.c                                             :+:      :+:    :+:   */
+/*   player.c                                           :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: abouazi <abouazi@student.1337.ma>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2023/07/08 00:32:55 by abouazi           #+#    #+#             */
-/*   Updated: 2023/07/15 02:22:28 by abouazi          ###   ########.fr       */
+/*   Created: 2023/07/15 02:04:01 by abouazi           #+#    #+#             */
+/*   Updated: 2023/07/15 02:29:36 by abouazi          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "../cub3d.h"
+#include "../../cub3d.h"
 
-void	left(t_data *data)
+void	player(t_data *data)
 {
-	int	x;
-	int	y;
+	int	row;
+	int	col;
 
-	x = (data->player->x + M_SPEED * cos(data->player->angle - (M_PI
-					/ 2))) / 40;
-	y = (data->player->y + M_SPEED * sin(data->player->angle - (M_PI
-					/ 2))) / 40;
-	if (data->map->map[y][x] != 1)
+	row = 0;
+	while (data->map->map[row])
 	{
-		data->player->x += M_SPEED * cos(data->player->angle - (M_PI
-					/ 2));
-		data->player->y += M_SPEED * sin(data->player->angle - (M_PI
-					/ 2));
+		col = 0;
+		while (data->map->map[row][col])
+		{
+			if (in_charset(data->map->map[row][col], "NSEW"))
+			{
+				data->player->p_x = row;
+				data->player->p_y = col;
+				data->map->view_direction = data->map->map[row][col];
+				return ;
+			}
+			col++;
+		}
+		row++;
 	}
 }
