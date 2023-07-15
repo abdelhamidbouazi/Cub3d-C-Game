@@ -6,7 +6,7 @@
 #    By: abouazi <abouazi@student.1337.ma>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2023/06/07 20:37:18 by abouazi           #+#    #+#              #
-#    Updated: 2023/07/14 18:38:42 by abouazi          ###   ########.fr        #
+#    Updated: 2023/07/15 02:03:16 by abouazi          ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -15,7 +15,7 @@ NAME = cub3D
 CHECK = parser/Check/colors.c parser/Check/elements.c parser/Check/extension.c \
 		parser/Check/floor_ciel.c parser/Check/headers.c parser/Check/textures.c
 
-FILL = parser/Fill/colors.c parser/Fill/textures.c
+FILL = parser/Fill/colors.c parser/Fill/textures.c parser/Fill/map.c
 
 READ = parser/Read/map.c
 
