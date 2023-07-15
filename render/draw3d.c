@@ -6,7 +6,7 @@
 /*   By: abouazi <abouazi@student.1337.ma>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/07/10 06:54:08 by abouazi           #+#    #+#             */
-/*   Updated: 2023/07/14 17:40:36 by abouazi          ###   ########.fr       */
+/*   Updated: 2023/07/15 01:04:42 by abouazi          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -26,6 +26,7 @@ void	draw3d(t_data *data, double ray_distance, double ray_angle, int ray)
 	double	floor_height;
 	int		i;
 
+	ray_distance = ray_distance * cos(ray_angle - data->player->angle);
 	project_plane = (SCREEN_WIDTH / 2) / tan(data->player->fov / 2);
 	stripe_height = WALL / ray_distance * project_plane;
 	ciel_height = (SCREEN_HEIGHT / 2) - (stripe_height / 2);
