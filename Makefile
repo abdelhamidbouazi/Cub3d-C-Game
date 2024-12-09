@@ -6,14 +6,15 @@
 #    By: abouazi <abouazi@student.1337.ma>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2023/06/07 20:37:18 by abouazi           #+#    #+#              #
-#    Updated: 2023/07/15 03:11:56 by abouazi          ###   ########.fr        #
+#    Updated: 2023/07/17 06:15:49 by abouazi          ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
 NAME = cub3D
 
 CHECK = parser/Check/colors.c parser/Check/elements.c parser/Check/extension.c \
-		parser/Check/floor_ciel.c parser/Check/headers.c parser/Check/textures.c
+		parser/Check/floor_ciel.c parser/Check/headers.c parser/Check/textures.c parser/Check/map.c \
+		parser/Check/check_surr.c
 
 FILL = parser/Fill/colors.c parser/Fill/textures.c parser/Fill/map.c parser/Fill/player.c
 
@@ -21,11 +22,11 @@ READ = parser/Read/map.c
 
 UTILS = utils/ft_atoi.c utils/ft_error.c utils/ft_split.c utils/ft_strcmp.c \
 		utils/ft_strncmp.c utils/ft_substr.c utils/ft_strndup.c \
-		parser/utils/free_split.c utils/ft_free.c utils/found_char.c
+		parser/utils/free_split.c utils/ft_free.c parser/utils/found_char.c
 
 GNL = gnl/gnl.c gnl/gnl_utils.c
 
-PARSING = parser/parser.c ${CHECK} ${FILL} ${READ} ${UTILS} ${GNL}
+PARSING = parser/parser.c parser/parser2.c ${CHECK} ${FILL} ${READ} ${UTILS} ${GNL}
 
 MOVE = move/left.c  move/right.c move/forward.c move/back.c move/rotate_left.c move/rotate_right.c move/esc.c \
 		move/init_keys.c move/press.c move/release.c move/move.c
@@ -33,14 +34,14 @@ MOVE = move/left.c  move/right.c move/forward.c move/back.c move/rotate_left.c m
 CAST = cast/raycastingh.c cast/raycastingv.c cast/distance.c cast/is_wall.c cast/raycasting.c \
 		cast/create_img.c cast/normalizer.c
 
-RENDER = render/draw3d.c render/my_mlx.c render/wall.c render/textures.c render/draw.c
+RENDER = render/draw3d.c render/my_mlx.c render/wall.c render/textures.c
 
 SRC = cub3d.c $(MOVE) $(CAST) $(RENDER) $(PARSING)
 
 INCL = cub3d.h
 
 CC = gcc
-FLAGS = -Wall -Wextra -Werror
+FLAGS = -Wall -Wextra -Werror -g
 FLAGS_MLX =   -lmlx -framework OpenGL -framework AppKit
 RM = rm -f
 

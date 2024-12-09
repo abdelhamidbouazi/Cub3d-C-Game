@@ -6,7 +6,7 @@
 /*   By: abouazi <abouazi@student.1337.ma>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/07/14 18:18:07 by abouazi           #+#    #+#             */
-/*   Updated: 2023/07/14 18:18:53 by abouazi          ###   ########.fr       */
+/*   Updated: 2023/07/17 05:33:02 by abouazi          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,8 +14,8 @@
 
 void	ft_free(t_data *data)
 {
+	mlx_destroy_window(data->mlx, data->win);
 	free(data->map);
-	free(data->player);
 	free(data->ray);
 	free(data->keys);
 }

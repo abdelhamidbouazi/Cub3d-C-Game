@@ -6,7 +6,7 @@
 /*   By: abouazi <abouazi@student.1337.ma>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/07/10 06:46:53 by abouazi           #+#    #+#             */
-/*   Updated: 2023/07/14 19:05:46 by abouazi          ###   ########.fr       */
+/*   Updated: 2023/07/16 15:01:11 by abouazi          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -27,12 +27,12 @@ void	handle_movement(t_data *data)
 	if (data->keys->rotate_right == true)
 		rotate_right(data);
 	if (data->keys->esc == true)
-		esc();
+		esc(data);
 }
 
 void	update_display(t_data *data)
 {
-	mlx_clear_window(data->mlx, data->win);
+	mlx_destroy_image(data->mlx, data->img);
 	raycasting(data);
 }
 

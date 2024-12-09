@@ -6,7 +6,7 @@
 /*   By: abouazi <abouazi@student.1337.ma>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/07/15 02:04:01 by abouazi           #+#    #+#             */
-/*   Updated: 2023/07/15 02:33:07 by abouazi          ###   ########.fr       */
+/*   Updated: 2023/07/17 05:49:24 by abouazi          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -25,8 +25,8 @@ void	player(t_data *data)
 		{
 			if (found_char(data->map->map[row][col], "NSEW"))
 			{
-				data->player->p_x = row;
-				data->player->p_y = col;
+				data->player.x = col;
+				data->player.y = row;
 				data->map->view_direction = data->map->map[row][col];
 				return ;
 			}

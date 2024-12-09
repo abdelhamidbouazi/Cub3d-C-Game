@@ -14,6 +14,6 @@
 
 void	rotate_left(t_data *data)
 {
-	data->player->angle -= M_ROTATE * (M_PI / 180);
-	data->player->angle = fmod(data->player->angle, (M_PI * 2));
+	data->player.angle -= M_ROTATE * (M_PI / 180);
+	data->player.angle = fmod(data->player.angle, (M_PI * 2));
 }

@@ -33,18 +33,19 @@ double	raycastingv(t_data *data, double ray_angle)
 	double	stepx;
 	double	stepy;
 
+	normalize_angle(ray_angle);
 	data->check = 0;
-	data->ray->f_x_v = floor(data->player->x / WALL) * WALL;
+	data->ray->f_x_v = floor(data->player.x / WALL) * WALL;
 	if ((ray_angle < 0.5 * M_PI || ray_angle > 1.5 * M_PI))
 		data->ray->f_x_v += WALL;
-	data->ray->f_y_v = data->player->y + \
-		(data->ray->f_x_v - data->player->x) * tan(ray_angle);
+	data->ray->f_y_v = data->player.y + \
+		(data->ray->f_x_v - data->player.x) * tan(ray_angle);
 	init_steps_vertical(data, ray_angle, &stepx, &stepy);
 	while (is_wall(data, data->ray->f_x_v, data->ray->f_y_v, 0))
 	{
 		data->ray->f_x_v += stepx;
 		data->ray->f_y_v += stepy;
 	}
-	return (distance(data->player->x, data->ray->f_x_v, \
-				data->player->y, data->ray->f_y_v));
+	return (distance(data->player.x, data->ray->f_x_v, \
+				data->player.y, data->ray->f_y_v));
 }

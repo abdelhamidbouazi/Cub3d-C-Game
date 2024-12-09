@@ -14,7 +14,7 @@
 
 void	create_img(t_data *data)
 {
-	data->line_len = 24;
+	data->line_len = data->map->row;
 	data->img = mlx_new_image(data->mlx, SCREEN_WIDTH,
 			SCREEN_HEIGHT);
 	data->addr_img = mlx_get_data_addr(data->img,

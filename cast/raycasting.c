@@ -33,7 +33,7 @@ void	raycasting_(t_data *data, double dish, double disv, double ray_angle)
 			data->ray->flag = 0;
 			draw3d(data, dish, ray_angle, i);
 		}
-		ray_angle += (data->player->fov / number_rays);
+		ray_angle += (data->player.fov / number_rays);
 		ray_angle = normalize_angle(ray_angle);
 		i++;
 	}
@@ -46,7 +46,7 @@ void	raycasting(t_data *data)
 	double	disv;
 
 	create_img(data);
-	ray_angle = data->player->angle - (data->player->fov / 2);
+	ray_angle = data->player.angle - (data->player.fov / 2);
 	dish = raycastingh(data, ray_angle);
 	disv = raycastingv(data, ray_angle);
 	raycasting_(data, dish, disv, ray_angle);

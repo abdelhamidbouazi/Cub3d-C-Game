@@ -6,7 +6,7 @@
 /*   By: abouazi <abouazi@student.1337.ma>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/07/15 02:14:48 by abouazi           #+#    #+#             */
-/*   Updated: 2023/07/15 02:33:02 by abouazi          ###   ########.fr       */
+/*   Updated: 2023/07/17 05:51:16 by abouazi          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -27,8 +27,7 @@ void	check_map(char **map)
 		{
 			if (!found_char(map[row][col], " 01NSEW"))
 				ft_error("Invalid character found in map.\n");
-			if (found_char(map[row][col], "NSEW")
-				&& !check_player_surroundings(map, row, col))
+			if (found_char(map[row][col], "NSEW"))
 				found++;
 			col++;
 		}
@@ -39,4 +38,3 @@ void	check_map(char **map)
 	else if (found > 1)
 		ft_error("This is not a multiplayer game..\n");
 }
-

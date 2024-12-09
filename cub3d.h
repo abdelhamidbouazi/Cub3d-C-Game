@@ -6,7 +6,7 @@
 /*   By: abouazi <abouazi@student.1337.ma>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/07/08 00:34:29 by abouazi           #+#    #+#             */
-/*   Updated: 2023/07/15 03:11:24 by abouazi          ###   ########.fr       */
+/*   Updated: 2023/07/17 06:14:36 by abouazi          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -24,8 +24,8 @@
 # define BUFFER_SIZE 1
 # define WALL_WIDTH 40
 # define WALL_HEIGHT 40
-# define SCREEN_WIDTH 960
-# define SCREEN_HEIGHT 960
+# define SCREEN_WIDTH 920
+# define SCREEN_HEIGHT 920
 
 # define FORWARD 13
 # define BACK 1
@@ -40,8 +40,6 @@
 
 # define M_SPEED 8
 # define M_ROTATE 3
-
-// int	map[24][24];
 
 typedef struct s_key
 {
@@ -59,7 +57,7 @@ typedef struct s_color
 }	t_color;
 
 typedef struct s_map {
-	char 	**map;
+	char	**map;
 	int		fd;
 	char	**file;
 	int		i;
@@ -123,6 +121,14 @@ typedef struct s_image
 	int		endian;
 }	t_image;
 
+typedef struct s_draw
+{
+	double	project_plane;
+	double	stripe_height;
+	double	ciel_height;
+	double	floor_height;
+}	t_draw;
+
 typedef struct s_data{
 	void		*mlx;
 	void		*win;
@@ -139,11 +145,13 @@ typedef struct s_data{
 	int			endian;
 	int			check;
 	bool		check_texture;
-	t_player	*player;
+	double		ray_angle;
+	t_player	player;
 	t_keys		*keys;
 	t_ray		*ray;
 	t_image		image;
 	t_map		*map;
+	t_draw		draw;
 }	t_data;
 
 // Parsing
@@ -161,6 +169,7 @@ void	rgb(t_color *color, char **str);
 void	textures(t_data *data);
 void	map(t_data *data);
 void	player(t_data *data);
+void	assign_texture(char *key, char *value, t_map *map);
 // Read
 char	**read_map(char	**av);
 int		num_of_lines(char **av);
@@ -198,7 +207,7 @@ void	left(t_data *data);
 void	right(t_data *data);
 void	rotate_left(t_data *data);
 void	rotate_right(t_data *data);
-int		esc(void);
+int		esc(t_data *data);
 // cast
 void	raycasting(t_data *data);
 double	raycastingh(t_data *data, double ray_angle);
@@ -211,15 +220,16 @@ double	normalize_angle(double angle);
 void	draw3d(t_data *data, double ray_distance, double ray_angle, int ray);
 void	my_mlx_pixel_put(t_data *data, int x, int y, int color);
 void	wall(t_data *data, int ray, double ciel_height, \
-			double floor_height, double ray_angle);
+			double floor_height);
 void	texture_so_and_ea(t_data *data);
 void	texture_no_and_we(t_data *data);
-void	draw_square(t_data *data, int x_start, int y_start, int color);
-void	draw_map(t_data *data);
-void	draw_player(t_data *data);
 void	ft_free(t_data *data);
-void	draw_square(t_data *data, int x_start, int y_start, int color);
-void	draw_map(t_data *data);
-void	draw_player(t_data *data);
-
+void	get_texture(char *line, t_map *map);
+char	*ft_trim(char *str);
+void	init_texture_color(t_data *data);
+int		split_func(char *color, int i, int *c, int *count);
+int		valid_color_str(char *color);
+int		is_player(char p);
+int		check_surr2(char **line, int i, int j);
+int		check_surr(char **line, int row);
 #endif

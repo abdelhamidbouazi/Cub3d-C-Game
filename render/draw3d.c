@@ -6,7 +6,7 @@
 /*   By: abouazi <abouazi@student.1337.ma>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/07/10 06:54:08 by abouazi           #+#    #+#             */
-/*   Updated: 2023/07/15 01:04:42 by abouazi          ###   ########.fr       */
+/*   Updated: 2023/07/16 15:19:28 by abouazi          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,29 +20,28 @@ int	color(int r, int g, int b)
 
 void	draw3d(t_data *data, double ray_distance, double ray_angle, int ray)
 {
-	double	project_plane;
-	double	stripe_height;
-	double	ciel_height;
-	double	floor_height;
 	int		i;
 
-	ray_distance = ray_distance * cos(ray_angle - data->player->angle);
-	project_plane = (SCREEN_WIDTH / 2) / tan(data->player->fov / 2);
-	stripe_height = WALL / ray_distance * project_plane;
-	ciel_height = (SCREEN_HEIGHT / 2) - (stripe_height / 2);
-	floor_height = (SCREEN_HEIGHT / 2) + (stripe_height / 2);
+	data->ray_angle = ray_angle;
+	ray_distance = ray_distance * cos(ray_angle - data->player.angle);
+	data->draw.project_plane = (SCREEN_WIDTH / 2) / tan(data->player.fov / 2);
+	data->draw.stripe_height = WALL / ray_distance * data->draw.project_plane;
+	data->draw.ciel_height = (SCREEN_HEIGHT / 2) \
+		- (data->draw.stripe_height / 2);
+	data->draw.floor_height = (SCREEN_HEIGHT / 2) \
+		+ (data->draw.stripe_height / 2);
 	i = 0;
-	ray_distance *= cos(ray_angle - data->player->angle);
-	while (i++ < ciel_height)
+	ray_distance *= cos(ray_angle - data->player.angle);
+	while (i++ < data->draw.ciel_height)
 	{
 		my_mlx_pixel_put(data, ray, i, color(data->map->ciel.r, \
 		data->map->ciel.g, data->map->ciel.b));
 	}
-	wall(data, ray, ciel_height, floor_height, ray_angle);
-	while (floor_height < SCREEN_HEIGHT)
+	wall(data, ray, data->draw.ciel_height, data->draw.floor_height);
+	while (data->draw.floor_height < SCREEN_HEIGHT)
 	{
-		my_mlx_pixel_put(data, ray, floor_height, \
+		my_mlx_pixel_put(data, ray, data->draw.floor_height, \
 		color(data->map->floor.r, data->map->floor.g, data->map->floor.b));
-		floor_height++;
+		data->draw.floor_height++;
 	}
 }
